@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+:root {
+  /* Core — aligned with design reference prototype (Geist fonts retained) */
+  --background: #f6f8fa;
+  --foreground: #13283d;
+  --cp-ink: #13283d;
+  --cp-navy: #0b253a;
+  --cp-teal: #087b81;
+  --cp-teal-600: #0a6d73;
+  --cp-brand-symbol: #07848b;
+  --cp-bg: #f5f8f8;
+  --cp-section-muted: #f6f9f9;
+  --cp-surface: #ffffff;
+  --cp-surface-soft: #f8fafc;
+  --cp-border: #dce6e9;
+  --cp-border-strong: #c4d8dc;
+  --cp-muted: #50677d;
+  --cp-ink-subtle: #7c9295;
+  --cp-footer: #102b3b;
+  --cp-footer-cta: #0c3443;
+  --cp-hero-gradient: linear-gradient(115deg, #f4fbf9 0%, #ffffff 64%);
+  /* Hairline rings & focus — one system, less “generic card soup” */
+  --cp-ring: color-mix(in srgb, var(--cp-navy) 8%, transparent);
+  --cp-ring-hover: color-mix(in srgb, var(--cp-teal) 35%, transparent);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--cp-teal) 22%, transparent);
+  color: var(--cp-navy);
+}
+
+/* Marketing pages: calmer defaults, clearer hierarchy */
+.marketing-shell {
+  --marketing-section-y: clamp(3.5rem, 8vw, 5rem);
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.marketing-shell main h1,
+.marketing-shell main h2,
+.marketing-shell main h3 {
+  text-wrap: balance;
+}
+
+/* Editorial marketing typography — fewer “template” weights */
+.marketing-shell main h1 {
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+.marketing-shell main h2 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.marketing-prose p {
+  line-height: 1.65;
+}

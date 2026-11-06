@@ -1,0 +1,14 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: cleanproof
+      POSTGRES_PASSWORD: cleanproof
+      POSTGRES_DB: cleanproof
+    ports:
+      - "5432:5432"
+    volumes:
+      - cleanproof_pg:/var/lib/postgresql/data
+
+volumes:
+  cleanproof_pg:

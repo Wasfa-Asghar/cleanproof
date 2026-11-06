@@ -1,0 +1,126 @@
+{
+  "updated": "2026-11-06",
+  "licenseNote": "JPEG photos use the Pexels License (https://www.pexels.com/license/). Marketing UI screenshots under screenshots/ must be produced with scripts/capture-marketing-screenshots.mjs against npm run dev:e2e — until then they may be non-product placeholders.",
+  "photos": [
+    {
+      "file": "hero-dining.jpg",
+      "localPath": "/marketing/photos/hero-dining.jpg",
+      "sourceUrl": "https://www.pexels.com/photo/9462159/",
+      "photographer": "Pexels",
+      "license": "Pexels License",
+      "status": "JPEG on disk"
+    },
+    {
+      "file": "commercial-office-clean.jpg",
+      "localPath": "/marketing/photos/commercial-office-clean.jpg",
+      "sourceUrl": "https://www.pexels.com/photo/6196682/",
+      "photographer": "Pexels",
+      "license": "Pexels License",
+      "status": "JPEG on disk"
+    },
+    {
+      "file": "commercial-team.jpg",
+      "localPath": "/marketing/photos/commercial-team.jpg",
+      "sourceUrl": "https://www.pexels.com/photo/6195120/",
+      "photographer": "Pexels",
+      "license": "Pexels License",
+      "status": "JPEG on disk"
+    },
+    {
+      "file": "supervisor-inspection.jpg",
+      "localPath": "/marketing/photos/supervisor-inspection.jpg",
+      "sourceUrl": "https://www.pexels.com/photo/6195275/",
+      "photographer": "Pexels",
+      "license": "Pexels License",
+      "status": "JPEG on disk"
+    },
+    {
+      "file": "mobile-cleaning-team.jpg",
+      "localPath": "/marketing/photos/mobile-cleaning-team.jpg",
+      "sourceUrl": "https://www.pexels.com/photo/1250453/",
+      "photographer": "Pexels",
+      "license": "Pexels License",
+      "status": "JPEG on disk"
+    },
+    {
+      "file": "kitchen-sanitize.jpg",
+      "localPath": "/marketing/photos/kitchen-sanitize.jpg",
+      "sourceUrl": "https://www.pexels.com/photo/9462224/",
+      "photographer": "Pexels",
+      "license": "Pexels License",
+      "status": "JPEG on disk"
+    },
+    {
+      "file": "end-of-tenancy.jpg",
+      "localPath": "/marketing/photos/end-of-tenancy.jpg",
+      "sourceUrl": "https://www.pexels.com/photo/6196692/",
+      "photographer": "Pexels",
+      "license": "Pexels License",
+      "status": "JPEG on disk"
+    },
+    {
+      "file": "residential-clean.jpg",
+      "localPath": "/marketing/photos/residential-clean.jpg",
+      "sourceUrl": "https://www.pexels.com/photo/5591852/",
+      "photographer": "Pexels",
+      "license": "Pexels License",
+      "status": "JPEG on disk"
+    },
+    {
+      "file": "window-cleaning.jpg",
+      "localPath": "/marketing/photos/window-cleaning.jpg",
+      "sourceUrl": "https://www.pexels.com/photo/6197120/",
+      "photographer": "Pexels",
+      "license": "Pexels License",
+      "status": "JPEG on disk"
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "owner-overview.png",
+      "source": "Regenerate with scripts/capture-marketing-screenshots.mjs (owner@e2e.cleanproof.test, /app/overview)",
+      "status": "PLACEHOLDER until E2E capture — do not imply live metrics"
+    },
+    {
+      "file": "jobs-list.png",
+      "source": "scripts/capture-marketing-screenshots.mjs (owner@e2e.cleanproof.test, /app/jobs)",
+      "status": "PLACEHOLDER until E2E capture"
+    },
+    {
+      "file": "job-detail.png",
+      "source": "scripts/capture-marketing-screenshots.mjs (manager@e2e.cleanproof.test, first job from /app/jobs)",
+      "status": "PLACEHOLDER until E2E capture"
+    },
+    {
+      "file": "field-workspace.png",
+      "source": "scripts/capture-marketing-screenshots.mjs (cleaner@e2e.cleanproof.test, /field/today)",
+      "status": "PLACEHOLDER until E2E capture"
+    },
+    {
+      "file": "field-workspace-mobile.png",
+      "source": "scripts/capture-marketing-screenshots.mjs — 390×844 viewport, cleaner field workspace",
+      "status": "PLACEHOLDER until E2E capture"
+    },
+    {
+      "file": "quality-queue.png",
+      "source": "scripts/capture-marketing-screenshots.mjs (manager@e2e.cleanproof.test, /app/quality)",
+      "status": "PLACEHOLDER until E2E capture"
+    },
+    {
+      "file": "issues-board.png",
+      "source": "scripts/capture-marketing-screenshots.mjs (manager@e2e.cleanproof.test, /app/issues)",
+      "status": "PLACEHOLDER until E2E capture"
+    },
+    {
+      "file": "client-report.png",
+      "source": "scripts/capture-marketing-screenshots.mjs (public token /r/e2e-client-report-token)",
+      "status": "PLACEHOLDER until E2E capture"
+    },
+    {
+      "file": "billing.png",
+      "source": "scripts/capture-marketing-screenshots.mjs (owner@e2e.cleanproof.test, /app/settings/billing)",
+      "status": "PLACEHOLDER until E2E capture"
+    }
+  ],
+  "note": "Run npm run dev:e2e, then node scripts/capture-marketing-screenshots.mjs. Re-run npm run verify:marketing-assets after capture."
+}
