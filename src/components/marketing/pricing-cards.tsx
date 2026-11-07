@@ -11,7 +11,7 @@ export function PricingCards({ compact }: { compact?: boolean }) {
           return (
             <div
               key={plan.id}
-              className={`relative flex flex-col rounded-[18px] border bg-white p-8 shadow-[0_6px_20px_rgba(35,60,74,0.05)] ${
+              className={`marketing-price-card relative flex flex-col rounded-[18px] border bg-white p-8 shadow-[0_6px_20px_rgba(35,60,74,0.05)] ${
                 featured ? "border-2 border-[var(--cp-teal)] shadow-[0_20px_45px_rgba(0,132,134,0.1)]" : "border-[#dce8e9]"
               }`}
             >

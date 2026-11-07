@@ -1,0 +1,344 @@
+/* Public-page presentation only. Brand values come from globals.css. */
+.marketing-shell {
+  --marketing-section-y: clamp(3.5rem, 6.5vw, 6rem);
+  --marketing-radius: 20px;
+  --marketing-shadow: 0 3px 8px color-mix(in srgb, var(--cp-navy) 3%, transparent),
+    0 16px 40px color-mix(in srgb, var(--cp-navy) 5%, transparent);
+  --marketing-shadow-raised: 0 8px 16px color-mix(in srgb, var(--cp-navy) 5%, transparent),
+    0 24px 48px color-mix(in srgb, var(--cp-navy) 9%, transparent);
+  --marketing-ease: cubic-bezier(.2,.7,.2,1);
+  background: var(--cp-surface);
+}
+.marketing-shell main { line-height: 1.65; }
+.marketing-shell main h1 {
+  font-size: clamp(2.35rem, 4.1vw, 3.75rem);
+  line-height: 1.08;
+  letter-spacing: -.048em;
+  font-weight: 600;
+}
+.marketing-shell main h2 {
+  line-height: 1.18;
+  letter-spacing: -.032em;
+}
+.marketing-shell main h3 { line-height: 1.35; letter-spacing: -.018em; }
+.marketing-shell main p { text-wrap: pretty; }
+.marketing-shell :is(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid var(--cp-teal);
+  outline-offset: 4px;
+}
+.marketing-shell :is(a, button) {
+  transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease,
+    box-shadow 220ms ease, transform 220ms var(--marketing-ease);
+}
+.marketing-shell :is(a, button).min-h-11 {
+  border-radius: 11px;
+  min-height: 46px;
+  font-weight: 600;
+  letter-spacing: -.01em;
+}
+.marketing-shell a.min-h-11 { box-shadow: 0 2px 3px color-mix(in srgb, var(--cp-navy) 7%, transparent); }
+.marketing-shell :is(a, button).min-h-11:active { transform: translateY(1px); }
+.marketing-header {
+  background: color-mix(in srgb, var(--cp-surface) 94%, transparent);
+  border-bottom-color: var(--cp-border);
+  box-shadow: 0 4px 24px color-mix(in srgb, var(--cp-navy) 3%, transparent);
+  backdrop-filter: blur(18px);
+}
+.marketing-header > div { max-width: 1280px; }
+.marketing-header nav[aria-label="Main"] { gap: 4px; }
+.marketing-header nav[aria-label="Main"] > div > div > div {
+  padding: 16px;
+  border-radius: 18px;
+  box-shadow: var(--marketing-shadow-raised);
+}
+.marketing-header nav[aria-label="Main"] a { line-height: 1.5; }
+.marketing-home > section { scroll-margin-top: 100px; }
+.marketing-home > section > .mx-auto,
+.marketing-home > section.mx-auto { max-width: 1216px; }
+.marketing-home [data-design="hero"] {
+  background: var(--cp-surface);
+}
+.marketing-home [data-design="hero"] > div {
+  padding-block: clamp(3rem, 6vw, 5rem);
+  gap: clamp(2rem, 4.5vw, 4.5rem);
+}
+.marketing-home [data-design="hero"] h1 { max-width: 12.5em; }
+.marketing-home [data-design="hero"] h1 em { display: block; margin-top: .12em; }
+.marketing-home [data-design="hero"] h1 + p {
+  font-size: clamp(1rem, 1.3vw, 1.125rem);
+  line-height: 1.7;
+  max-width: 49ch;
+}
+.marketing-home [data-design="hero"] ul { gap: 12px 20px; line-height: 1.5; }
+.marketing-hero-visual {
+  width: 100%;
+  min-height: 0;
+  padding: 0 0 30px 24px;
+  height: auto;
+}
+.marketing-hero-visual > div:first-child {
+  height: clamp(340px, 37vw, 490px);
+  border-radius: 24px;
+  box-shadow: var(--marketing-shadow-raised);
+}
+.marketing-hero-visual > div[aria-hidden] {
+  bottom: 0;
+  left: 0;
+  width: min(90%, 320px);
+  padding: 22px;
+  border-color: var(--cp-border);
+  box-shadow: var(--marketing-shadow-raised);
+}
+.marketing-home [data-design="context"] {
+  background: var(--cp-bg);
+  border-bottom: 1px solid var(--cp-border);
+  padding-block: clamp(2.5rem, 4vw, 3.5rem);
+}
+.marketing-home [data-design="context"] h2 { font-size: clamp(1.5rem, 2.4vw, 2rem); }
+.marketing-home [data-design="context"] p { font-size: 1rem; line-height: 1.7; }
+.marketing-section-intro { max-width: 720px; }
+.marketing-section-intro > p:first-child:not(:last-child),
+.marketing-home [data-design="report"] h2 + p,
+.marketing-interior-hero p { text-wrap: pretty; }
+.marketing-section-intro > p:first-child {
+  color: var(--cp-teal);
+  font-size: .75rem;
+  font-weight: 650;
+  letter-spacing: .09em;
+}
+.marketing-section-intro h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); margin-top: 12px; }
+.marketing-section-intro h2 + p { margin-top: 18px; max-width: 65ch; line-height: 1.75; }
+.marketing-home [data-design="gaps"] > .grid > div {
+  padding: clamp(22px, 2.5vw, 32px);
+  border-radius: var(--marketing-radius);
+  box-shadow: var(--marketing-shadow);
+}
+.marketing-home [data-design="gaps"] h3 { font-size: 1.1rem; }
+.marketing-home [data-design="gaps"] p { line-height: 1.75; }
+.marketing-home [data-design="workflow"] { background: var(--cp-bg); }
+.marketing-home [data-design="workflow"] ol li { padding-block: 22px; }
+.marketing-home [data-design="workflow"] ol li:first-child { padding-top: 0; }
+.marketing-home [data-design="workflow"] ol li > span {
+  border-radius: 13px;
+  width: 44px;
+  height: 44px;
+  background: var(--cp-surface);
+  border-color: var(--cp-border-strong);
+  box-shadow: 0 3px 8px color-mix(in srgb, var(--cp-teal) 7%, transparent);
+}
+.marketing-home [data-design="workflow"] div[style] {
+  background: var(--cp-surface) !important;
+  padding: 16px;
+  border-radius: 20px;
+  border-color: var(--cp-border);
+  box-shadow: var(--marketing-shadow);
+}
+.marketing-shell figure > div:not(.product-preview),
+.marketing-media-frame {
+  border-radius: var(--marketing-radius);
+  box-shadow: var(--marketing-shadow);
+}
+.marketing-media-frame {
+  background: var(--cp-surface-soft) !important;
+  padding: clamp(12px, 2vw, 22px);
+  border-color: var(--cp-border);
+}
+.marketing-shell figcaption { line-height: 1.65; }
+.marketing-product-tabs {
+  padding: clamp(18px, 3vw, 36px);
+  border-radius: 24px;
+  background: var(--cp-surface-soft);
+  box-shadow: var(--marketing-shadow);
+}
+.marketing-product-tabs [role="tablist"] {
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--cp-border);
+  gap: 8px;
+}
+.marketing-product-tabs [role="tab"] { border-radius: 9px; padding: 10px 16px; }
+.marketing-product-tabs [role="tabpanel"] { align-items: center; }
+.marketing-product-tabs [role="tabpanel"] > div:last-child { padding: clamp(0px, 1vw, 16px); }
+.marketing-product-tabs [role="tabpanel"] ul { padding-block: 8px; }
+.marketing-home [data-design="platform"] { background: var(--cp-surface); }
+.marketing-home [data-design="platform"] .grid > a {
+  padding: 28px;
+  border-radius: var(--marketing-radius);
+  background: var(--cp-surface-soft);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 4px color-mix(in srgb, var(--cp-navy) 2%, transparent);
+}
+.marketing-home [data-design="platform"] .grid > a h3 { font-size: 1.05rem; }
+.marketing-home [data-design="platform"] .grid > a p { line-height: 1.75; margin-bottom: 18px; }
+.marketing-home [data-design="platform"] .grid > a > span { margin-top: auto; }
+.marketing-home [data-design="comparison"] .grid { gap: 0; border-radius: 22px; overflow: hidden; border: 1px solid var(--cp-border); }
+.marketing-home [data-design="comparison"] .grid > div { border: 0; border-radius: 0; padding: clamp(24px, 4vw, 44px); }
+.marketing-home [data-design="comparison"] .grid > div:last-child {
+  background: color-mix(in srgb, var(--cp-teal) 6%, var(--cp-surface));
+}
+.marketing-home [data-design="comparison"] li { padding-block: 5px; }
+.marketing-home [data-design="industries"] { background: var(--cp-bg); }
+.marketing-home [data-design="industries"] .grid > a {
+  background: var(--cp-surface);
+  padding: clamp(20px, 3vw, 30px);
+  gap: 24px;
+  border-radius: var(--marketing-radius);
+  box-shadow: var(--marketing-shadow);
+}
+.marketing-home [data-design="report"] { background: var(--cp-surface); }
+.marketing-home [data-design="report"] .grid { align-items: center; }
+.marketing-home [data-design="report"] .grid > div:last-child > div {
+  padding: 24px;
+  border-radius: 24px;
+  background: var(--cp-surface-soft);
+  box-shadow: var(--marketing-shadow);
+}
+.marketing-home [data-design="example"] { border-top: 0; }
+.marketing-home [data-design="example"] > div > div {
+  background: var(--cp-bg);
+  border-radius: 24px;
+  border-color: var(--cp-border-strong);
+}
+.marketing-home [data-design="example"] ol li > div:last-child p:last-child { line-height: 1.75; }
+.marketing-price-card {
+  border-radius: 22px;
+  padding: clamp(24px, 2.7vw, 36px);
+  box-shadow: var(--marketing-shadow);
+}
+.marketing-price-card.border-2 {
+  background: color-mix(in srgb, var(--cp-teal) 3%, var(--cp-surface));
+  box-shadow: var(--marketing-shadow-raised);
+}
+.marketing-price-card .price { font-size: clamp(2.6rem, 4vw, 3.4rem); line-height: 1.15; }
+.marketing-price-card .price > span { display: block; margin: 10px 0 0; font-size: .8rem; }
+.marketing-price-card ul { line-height: 1.7; }
+.marketing-home [data-design="security"] .grid > div {
+  padding: 24px;
+  border-radius: 18px;
+  box-shadow: var(--marketing-shadow);
+}
+.marketing-faq { border-radius: 20px; overflow: hidden; box-shadow: var(--marketing-shadow); }
+.marketing-faq h3 button { padding: 22px 24px; font-size: .95rem; line-height: 1.5; }
+.marketing-faq button[aria-expanded="true"] { background: var(--cp-surface-soft); color: var(--cp-teal); }
+.marketing-faq [role="region"] { padding: 0 24px 24px; background: var(--cp-surface-soft); line-height: 1.8; }
+.marketing-cta { position: relative; overflow: hidden; }
+.marketing-cta > div { max-width: 780px; padding-block: clamp(3.5rem, 7vw, 6rem); }
+.marketing-cta h2 { font-size: clamp(2rem, 3.5vw, 3rem); }
+.marketing-footer > div { padding-top: 64px; padding-bottom: 32px; }
+.marketing-footer a:not(:has(svg)) { text-underline-offset: 5px; }
+.marketing-footer ul a:hover { text-decoration: underline; }
+.marketing-interior-hero { background: var(--cp-surface); padding-block: clamp(3.5rem, 6vw, 5.5rem); }
+.marketing-interior-hero--center { border-bottom: 1px solid var(--cp-border); background: var(--cp-bg); }
+.marketing-interior-hero h1 { max-width: 17ch; }
+.marketing-interior-hero--center h1 { max-width: 22ch; }
+.marketing-interior-hero p { line-height: 1.75; }
+.marketing-shell main form {
+  border-radius: var(--marketing-radius);
+}
+.marketing-shell main :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea) {
+  border-color: var(--cp-border-strong);
+  border-radius: 10px;
+  background: var(--cp-surface);
+  min-height: 44px;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+.marketing-shell main :is(input, select, textarea):focus {
+  border-color: var(--cp-teal);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--cp-teal) 8%, transparent);
+}
+.marketing-shell main article { line-height: 1.8; }
+.marketing-shell main article h2 { margin-top: 2rem; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .marketing-shell a.min-h-11:hover { transform: translateY(-2px); box-shadow: var(--marketing-shadow); }
+  .marketing-home :is([data-design="platform"], [data-design="industries"]) .grid > a:hover {
+    transform: translateY(-4px);
+    border-color: var(--cp-teal);
+    box-shadow: var(--marketing-shadow-raised);
+  }
+}
+@keyframes marketing-enter {
+  from { opacity: .25; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .marketing-home [data-design="hero"] h1,
+  .marketing-interior-hero h1 { animation: marketing-enter 550ms var(--marketing-ease) both; }
+  .marketing-hero-visual { animation: marketing-enter 700ms var(--marketing-ease) both; }
+  .marketing-product-tabs [role="tabpanel"],
+  .marketing-faq [role="region"]:not([hidden]) { animation: marketing-enter 250ms ease both; }
+  @supports (animation-timeline: view()) {
+    .marketing-home .marketing-section-intro {
+      animation: marketing-enter linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 90%;
+    }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marketing-shell *, .marketing-shell *::before, .marketing-shell *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media (max-width: 1023px) {
+  .marketing-home [data-design="hero"] > div { max-width: 760px; }
+  .marketing-home [data-design="hero"] h1 { max-width: 15ch; }
+  .marketing-hero-visual { max-width: 600px; margin-inline: auto; }
+  .marketing-hero-visual > div:first-child { height: clamp(300px, 56vw, 440px); }
+  .marketing-header nav[aria-label="Mobile"] { overscroll-behavior: contain; }
+}
+@media (max-width: 639px) {
+  .marketing-shell { --marketing-section-y: 3.5rem; }
+  .marketing-shell main h1 { font-size: clamp(2.1rem, 8.5vw, 2.8rem); }
+  .marketing-home > section > .mx-auto,
+  .marketing-home > section.mx-auto,
+  .marketing-interior-hero > div { padding-inline: 20px; }
+  .marketing-home [data-design="hero"] > div { padding-top: 40px; gap: 32px; }
+  .marketing-home [data-design="hero"] .flex.flex-wrap.gap-3 > a { width: 100%; }
+  .marketing-hero-visual { padding-left: 12px; padding-bottom: 26px; }
+  .marketing-hero-visual > div:first-child { height: 340px; }
+  .marketing-hero-visual > div[aria-hidden] { padding: 18px; }
+  .marketing-home [data-design="industries"] .grid > a { align-items: flex-start; gap: 16px; }
+  .marketing-home [data-design="industries"] .grid > a > div:first-child { width: 56px; height: 56px; border-radius: 14px; }
+  .marketing-home [data-design="industries"] .grid > a svg { width: 30px; height: 30px; }
+  .marketing-faq h3 button { padding: 20px; }
+  .marketing-faq [role="region"] { padding-inline: 20px; }
+  .marketing-product-tabs [role="tab"] { padding: 10px 12px; font-size: .8rem; }
+  .marketing-price-card { padding: 28px; }
+  .marketing-footer > div { padding-inline: 20px; }
+}
+
+/* Shared interior-page cards and reading layouts. */
+.marketing-shell main > section .grid > a.rounded-2xl,
+.marketing-shell main > section .grid > a.rounded-xl {
+  border-color: var(--cp-border);
+  border-radius: var(--marketing-radius);
+  box-shadow: var(--marketing-shadow);
+  padding: 28px;
+}
+.marketing-shell main > section .grid > a:hover {
+  border-color: var(--cp-teal);
+  box-shadow: var(--marketing-shadow-raised);
+}
+.marketing-shell main > section .grid > a p { line-height: 1.75; }
+.marketing-shell main form.space-y-5 {
+  padding: clamp(22px, 3vw, 36px);
+  border: 1px solid var(--cp-border);
+  box-shadow: var(--marketing-shadow);
+}
+.marketing-shell main nav[aria-label="On this page"] {
+  border-radius: var(--marketing-radius);
+  padding: 26px;
+  box-shadow: var(--marketing-shadow);
+}
+.marketing-shell main nav[aria-label="Legal documents"] a { padding: 11px 14px; }
+.marketing-shell main article section { scroll-margin-top: 100px; }
+.marketing-shell main article h1 { font-size: clamp(2rem, 3.5vw, 3rem); }
+.marketing-shell main table { border-collapse: separate; border-spacing: 0; }
+.marketing-shell main table th { background: var(--cp-surface-soft); }
+.marketing-shell main table :is(td, th) { padding-block: 18px; }
+@media (max-width: 639px) {
+  .marketing-shell main > section .grid > a.rounded-2xl,
+  .marketing-shell main > section .grid > a.rounded-xl { padding: 22px; }
+}

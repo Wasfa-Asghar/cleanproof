@@ -1,2 +1,23 @@
-DATABASE_URL="your_database_connection_url"
-AUTH_SECRET="7f9a2c8e4b1d6f3a9c5e2b8d7a4f1c6e9b3d5a7f2c8e1b4d"
+# Recommended for most uses
+DATABASE_URL=postgresql://neondb_owner:npg_EOGx1DM0jqty@ep-dry-dawn-bcnf2af5-pooler.c-16.us-east-1.aws.neon.tech/neondb?channel_binding=require&sslmode=require
+
+# For uses requiring a connection without pgbouncer
+DATABASE_URL_UNPOOLED=postgresql://neondb_owner:npg_EOGx1DM0jqty@ep-dry-dawn-bcnf2af5.c-16.us-east-1.aws.neon.tech/neondb?sslmode=require
+
+# Parameters for constructing your own connection string
+PGHOST=ep-dry-dawn-bcnf2af5-pooler.c-16.us-east-1.aws.neon.tech
+PGHOST_UNPOOLED=ep-dry-dawn-bcnf2af5.c-16.us-east-1.aws.neon.tech
+PGUSER=neondb_owner
+PGDATABASE=neondb
+PGPASSWORD=npg_EOGx1DM0jqty
+
+# Parameters for Vercel Postgres Templates
+POSTGRES_URL=postgresql://neondb_owner:npg_EOGx1DM0jqty@ep-dry-dawn-bcnf2af5-pooler.c-16.us-east-1.aws.neon.tech/neondb?channel_binding=require&sslmode=require
+POSTGRES_URL_NON_POOLING=postgresql://neondb_owner:npg_EOGx1DM0jqty@ep-dry-dawn-bcnf2af5.c-16.us-east-1.aws.neon.tech/neondb?channel_binding=require&sslmode=require
+POSTGRES_USER=neondb_owner
+POSTGRES_HOST=ep-dry-dawn-bcnf2af5-pooler.c-16.us-east-1.aws.neon.tech
+POSTGRES_PASSWORD=npg_EOGx1DM0jqty
+POSTGRES_DATABASE=neondb
+POSTGRES_URL_NO_SSL=postgresql://neondb_owner:npg_EOGx1DM0jqty@ep-dry-dawn-bcnf2af5-pooler.c-16.us-east-1.aws.neon.tech/neondb
+POSTGRES_PRISMA_URL=postgresql://neondb_owner:npg_EOGx1DM0jqty@ep-dry-dawn-bcnf2af5-pooler.c-16.us-east-1.aws.neon.tech/neondb?channel_binding=require&connect_timeout=15&sslmode=require
+AUTH_SECRET=5188607fa2e03467ddff0f8835a8a1cb6f0c8e84a5fdc85edeb1e3c544e7086c

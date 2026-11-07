@@ -6,7 +6,7 @@ import Image from "next/image";
  */
 export function HomeHeroVisual() {
   return (
-    <div className="relative mx-auto min-h-[300px] w-full max-w-xl select-none sm:min-h-[380px] lg:ml-auto lg:mr-0 lg:h-[min(510px,65vh)] lg:max-w-none lg:w-[87%]">
+    <div className="marketing-hero-visual relative mx-auto min-h-[300px] w-full max-w-xl select-none sm:min-h-[380px] lg:ml-auto lg:mr-0 lg:h-[min(510px,65vh)] lg:max-w-none lg:w-[87%]">
       <div className="relative h-[min(380px,55vw)] overflow-hidden rounded-[20px] bg-[color-mix(in_srgb,var(--cp-teal)_12%,var(--cp-bg))] shadow-[0_22px_44px_rgba(18,44,53,0.13)] sm:h-[min(420px,52vw)] lg:h-full">
         <Image
           src="/marketing/photos/end-of-tenancy.jpg"

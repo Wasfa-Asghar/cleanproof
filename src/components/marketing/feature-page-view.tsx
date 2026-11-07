@@ -1,47 +1,13 @@
+import { ProductDetailSections, FEATURE_DETAILS } from "@/components/marketing/product-detail-sections";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { FaqAccordion } from "@/components/marketing/faq-accordion";
 import { ProductScreenshot } from "@/components/marketing/product-screenshot";
 import { CtaBand } from "@/components/marketing/cta-band";
 import { MarketingInteriorHeroSplit } from "@/components/marketing/marketing-interior-hero";
-import { MarketingGlassFrame } from "@/components/marketing/marketing-glass-frame";
 import { MarketingFeatureIcon } from "@/components/marketing/marketing-feature-icon";
-import { MarketingFieldPhoneMock } from "@/components/marketing/marketing-field-phone-mock";
 import type { FeaturePageContent } from "@/lib/marketing/features-content";
 import { FEATURE_PAGES, getFeatureWorkflowScenario } from "@/lib/marketing/features-content";
-
-function FeatureHeroAside({ page }: { page: FeaturePageContent }) {
-  if (page.heroLayout === "split_phone") {
-    return (
-      <MarketingGlassFrame className="flex flex-col items-center gap-6 py-6 sm:py-8">
-        <MarketingFieldPhoneMock />
-        <div className="w-full max-w-sm">
-          <ProductScreenshot screenshotKey={page.heroScreenshotKey} variant="default" showCaption={false} />
-        </div>
-        <p className="text-center text-[11px] leading-snug text-[var(--cp-ink-subtle)]">
-          Stylised phone frame for layout · narrow viewport screenshot from the field workspace below.
-        </p>
-      </MarketingGlassFrame>
-    );
-  }
-
-  if (page.heroLayout === "split_report") {
-    return (
-      <MarketingGlassFrame className="py-6 sm:py-8">
-        <ProductScreenshot screenshotKey={page.heroScreenshotKey} variant="hero" showCaption={false} />
-        <p className="mt-3 text-center text-[11px] text-[var(--cp-ink-subtle)]">
-          Public completion view, token link (demo data when captured from seeded E2E).
-        </p>
-      </MarketingGlassFrame>
-    );
-  }
-
-  return (
-    <MarketingGlassFrame className="py-6 sm:py-8">
-      <ProductScreenshot screenshotKey={page.heroScreenshotKey} variant="hero" />
-    </MarketingGlassFrame>
-  );
-}
 
 export function FeaturePageView({ page }: { page: FeaturePageContent }) {
   const scenario = getFeatureWorkflowScenario();
@@ -52,7 +18,7 @@ export function FeaturePageView({ page }: { page: FeaturePageContent }) {
         eyebrow={page.heroEyebrow}
         title={page.heroTitle}
         lead={page.heroLead}
-        aside={<FeatureHeroAside page={page} />}
+        aside={<ProductScreenshot screenshotKey={page.heroScreenshotKey} variant="compact" showCaption={false} />}
       >
         <div className="mt-8 flex flex-wrap gap-3">
           <Button href="/auth/signup" className="bg-[var(--cp-teal)] px-[22px] py-3.5 text-sm font-semibold shadow-[0_7px_16px_rgba(4,123,132,0.12)] hover:bg-[var(--cp-teal-600)]">
@@ -121,12 +87,7 @@ export function FeaturePageView({ page }: { page: FeaturePageContent }) {
                 Explore role-based demo →
               </Button>
             </div>
-            <MarketingGlassFrame>
-              <ProductScreenshot screenshotKey={page.workflowScreenshotKey} variant="hero" showCaption={false} />
-              <p className="mt-3 text-center text-[11px] text-[var(--cp-ink-subtle)]">
-                Screenshot from a demo organisation with sample data.
-              </p>
-            </MarketingGlassFrame>
+            <ProductScreenshot screenshotKey={page.workflowScreenshotKey} variant="compact" />
           </div>
         </div>
       </section>
@@ -176,6 +137,7 @@ export function FeaturePageView({ page }: { page: FeaturePageContent }) {
         </div>
       </section>
 
+      <ProductDetailSections sections={FEATURE_DETAILS[page.slug]} />
       <CtaBand />
     </>
   );

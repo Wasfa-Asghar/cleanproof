@@ -1,3 +1,4 @@
+import { ProductDetailSections } from "@/components/marketing/product-detail-sections";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PricingCards } from "@/components/marketing/pricing-cards";
@@ -166,6 +167,16 @@ export default function PricingPage() {
         </div>
       </section>
 
+      <ProductDetailSections sections={[
+        {
+          title: "Estimate your job volume",
+          body: "Count the visits your team expects to record in a typical month. Use that estimate and your team size when comparing plan limits.",
+        },
+        {
+          title: "Use the trial to test a full handover",
+          body: "Set up a site, assign a visit, review the submission and open its report before choosing a paid plan.",
+        },
+      ]} />
       <CtaBand />
     </>
   );

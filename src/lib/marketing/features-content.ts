@@ -97,7 +97,7 @@ export const FEATURE_PAGES: Record<FeatureSlug, FeaturePageContent> = {
         hrefSlug: "quality-inspections",
       },
     ],
-    heroScreenshotKey: "field-workspace-mobile",
+    heroScreenshotKey: "field-workspace",
     workflowScreenshotKey: "quality-queue",
     referencePng: "03-features-photo-evidence.png",
     faq: [
@@ -153,7 +153,7 @@ export const FEATURE_PAGES: Record<FeatureSlug, FeaturePageContent> = {
         hrefSlug: "quality-inspections",
       },
     ],
-    heroScreenshotKey: "field-workspace-mobile",
+    heroScreenshotKey: "field-workspace",
     workflowScreenshotKey: "quality-queue",
     referencePng: "04-features-cleaning-checklists.png",
     faq: [

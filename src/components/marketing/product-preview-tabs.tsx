@@ -72,7 +72,7 @@ export function ProductPreviewTabs() {
   const tab = TABS.find((t) => t.id === active) ?? TABS[0];
 
   return (
-    <div className="rounded-2xl border border-[var(--cp-border)] bg-gradient-to-b from-[var(--cp-surface)] to-[var(--cp-bg)] p-5 shadow-sm ring-1 ring-[var(--cp-ring)] md:p-8">
+    <div className="marketing-product-tabs rounded-2xl border border-[var(--cp-border)] bg-gradient-to-b from-[var(--cp-surface)] to-[var(--cp-bg)] p-5 shadow-sm ring-1 ring-[var(--cp-ring)] md:p-8">
       <div role="tablist" aria-label="Product preview" className="flex flex-wrap gap-2">
         {TABS.map((t) => (
           <button
@@ -92,6 +92,7 @@ export function ProductPreviewTabs() {
         ))}
       </div>
       <div
+        key={tab.id}
         role="tabpanel"
         aria-labelledby={tab.id}
         className="mt-8 grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-10"

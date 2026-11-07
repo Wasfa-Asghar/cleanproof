@@ -1,3 +1,4 @@
+import { ProductDetailSections } from "@/components/marketing/product-detail-sections";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -91,6 +92,16 @@ export default function SampleReportPage() {
         </div>
       </section>
 
+      <ProductDetailSections sections={[
+        {
+          title: "Read the visit details first",
+          body: "Check the site and visit date, then use the checklist and evidence to understand what the report covers.",
+        },
+        {
+          title: "Use the report at client handover",
+          body: "Share the approved visit report with the intended client contact when they need a record of completed work.",
+        },
+      ]} />
       <CtaBand />
     </>
   );

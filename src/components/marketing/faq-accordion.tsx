@@ -8,7 +8,7 @@ export function FaqAccordion({ items }: { items: Array<{ q: string; a: string }>
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <div className="divide-y divide-[var(--cp-border)] rounded-xl border border-[var(--cp-border)] bg-white">
+    <div className="marketing-faq divide-y divide-[var(--cp-border)] rounded-xl border border-[var(--cp-border)] bg-white">
       {items.map((item, i) => {
         const panelId = `${baseId}-${i}`;
         const isOpen = open === i;

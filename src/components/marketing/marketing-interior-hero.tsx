@@ -16,7 +16,7 @@ export function MarketingInteriorHeroCenter({
 }) {
   return (
     <section
-      className={`border-b border-[var(--cp-border)] bg-[var(--cp-hero-gradient)] py-[clamp(3.25rem,7.5vw,4.75rem)] text-center ${className ?? ""}`}
+      className={`marketing-interior-hero marketing-interior-hero--center border-b border-[var(--cp-border)] bg-[var(--cp-hero-gradient)] py-[clamp(3.25rem,7.5vw,4.75rem)] text-center ${className ?? ""}`}
     >
       <div className="mx-auto max-w-[1216px] px-4">
         <p className="inline-flex items-center justify-center gap-2.5 text-xs font-extrabold uppercase tracking-[0.11em] text-[var(--cp-teal)]">
@@ -50,7 +50,7 @@ export function MarketingInteriorHeroSplit({
   className?: string;
 }) {
   return (
-    <section className={`border-b border-[var(--cp-border)] bg-[var(--cp-hero-gradient)] py-[clamp(3rem,7vw,5.25rem)] ${className ?? ""}`}>
+    <section className={`marketing-interior-hero border-b border-[var(--cp-border)] bg-[var(--cp-hero-gradient)] py-[clamp(3rem,7vw,5.25rem)] ${className ?? ""}`}>
       <div className="mx-auto grid max-w-[1216px] gap-10 px-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.02fr)] lg:items-center lg:gap-16 xl:gap-[4.5rem]">
         <div>
           <p className="inline-flex items-center gap-2.5 text-xs font-extrabold uppercase tracking-[0.11em] text-[var(--cp-teal)]">

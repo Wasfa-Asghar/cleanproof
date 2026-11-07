@@ -69,3 +69,33 @@ body {
 .marketing-prose p {
   line-height: 1.65;
 }
+
+.product-preview {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+.product-preview[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+.product-preview-dialog {
+  margin: auto;
+  width: fit-content;
+  max-width: 94vw;
+  max-height: 90dvh;
+  padding: 0;
+  border: 1px solid #d8e5e7;
+  border-radius: 16px;
+  box-shadow: 0 24px 80px #09232d40;
+}
+.product-preview-dialog::backdrop {
+  background: #09232db3;
+}
+@media (prefers-reduced-motion: reduce) {
+  .product-preview {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

@@ -4,7 +4,7 @@ import { MarketingWordmark } from "@/components/marketing/marketing-wordmark";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-auto bg-[var(--cp-footer)] text-white">
+    <footer className="marketing-footer mt-auto bg-[var(--cp-footer)] text-white">
       <div className="mx-auto max-w-[1216px] px-4 py-14 sm:px-5">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[minmax(0,2.1fr)_repeat(3,minmax(0,1fr))] lg:gap-11">
           <div className="sm:col-span-2 lg:col-span-1">

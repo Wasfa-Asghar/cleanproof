@@ -1,3 +1,4 @@
+import { ProductDetailSections } from "@/components/marketing/product-detail-sections";
 import { notFound } from "next/navigation";
 import {
   demoLoginCleanerAction,
@@ -106,6 +107,16 @@ export default async function DemoPage() {
         </div>
       </section>
 
+      <ProductDetailSections sections={[
+        {
+          title: "Follow one visit through the demo",
+          body: "Start in the cleaner view to see the assigned work. Then open the supervisor view to see what gets reviewed after submission.",
+        },
+        {
+          title: "Compare the supervisor and client views",
+          body: "Look at a job in the supervisor workspace, then open the public sample report to see what the client receives.",
+        },
+      ]} />
       <section className="mx-auto max-w-3xl px-4 py-12 text-center">
         <Button href="/auth/signup" className="bg-[var(--cp-teal)] px-8 py-3.5 font-semibold hover:bg-[var(--cp-teal-600)]">
           Create your organisation →

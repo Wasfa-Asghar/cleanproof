@@ -1,3 +1,4 @@
+import "./home-reference.css";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -152,8 +153,8 @@ const STEPS = [
 
 export default function HomePage() {
   return (
-    <div>
-      <section className="relative overflow-x-hidden border-b border-[var(--cp-border)] bg-[var(--cp-hero-gradient)]">
+    <div className="marketing-home">
+      <section data-design="hero" className="relative overflow-x-hidden border-b border-[var(--cp-border)] bg-[var(--cp-hero-gradient)]">
         <div className="relative mx-auto grid max-w-[1216px] gap-10 px-4 py-[clamp(3.5rem,8vw,5.25rem)] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-center lg:gap-16">
           <div className="max-w-xl">
             <p className="inline-flex items-center gap-2.5 text-xs font-extrabold uppercase tracking-[0.11em] text-[var(--cp-teal)]">
@@ -205,7 +206,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-[var(--cp-section-muted)] py-[var(--marketing-section-y)]">
+      <section data-design="context" className="bg-[var(--cp-section-muted)] py-[var(--marketing-section-y)]">
         <div className="mx-auto max-w-6xl px-4">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-8">
             <h2 className="max-w-[620px] text-3xl font-semibold tracking-[-0.02em] text-[var(--cp-navy)] md:text-[2.1rem]">
@@ -218,7 +219,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-[var(--marketing-section-y)]">
+      <section data-design="gaps" className="mx-auto max-w-6xl px-4 py-[var(--marketing-section-y)]">
         <SectionIntro
           tone="quiet"
           eyebrow="What breaks first"
@@ -242,7 +243,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="workflow-on-home" className="scroll-mt-24 border-y border-[var(--cp-border)] bg-[var(--cp-surface)] py-[var(--marketing-section-y)]">
+      <section data-design="workflow" id="workflow-on-home" className="scroll-mt-24 border-y border-[var(--cp-border)] bg-[var(--cp-surface)] py-[var(--marketing-section-y)]">
         <div className="mx-auto max-w-[1216px] px-4">
           <p className="inline-flex items-center gap-2.5 text-xs font-extrabold uppercase tracking-[0.11em] text-[var(--cp-teal)]">
             <span className="h-1.5 w-1.5 rounded-full bg-[#0c9897]" aria-hidden />
@@ -283,7 +284,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-[var(--marketing-section-y)]">
+      <section data-design="preview" className="mx-auto max-w-6xl px-4 py-[var(--marketing-section-y)]">
         <SectionIntro
           tone="quiet"
           eyebrow="Inside the product"
@@ -295,7 +296,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-t border-[var(--cp-border)] bg-[var(--cp-bg)] py-[var(--marketing-section-y)]">
+      <section data-design="platform" className="border-t border-[var(--cp-border)] bg-[var(--cp-bg)] py-[var(--marketing-section-y)]">
         <div className="mx-auto max-w-6xl px-4">
           <SectionIntro
             tone="quiet"
@@ -319,7 +320,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-[var(--marketing-section-y)]">
+      <section data-design="comparison" className="mx-auto max-w-6xl px-4 py-[var(--marketing-section-y)]">
         <SectionIntro
           tone="quiet"
           eyebrow="Before / after"
@@ -362,7 +363,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-y border-[var(--cp-border)] bg-[var(--cp-surface)] py-[var(--marketing-section-y)]">
+      <section data-design="industries" className="border-y border-[var(--cp-border)] bg-[var(--cp-surface)] py-[var(--marketing-section-y)]">
         <div className="mx-auto max-w-6xl px-4">
           <SectionIntro
             tone="quiet"
@@ -388,7 +389,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-y border-[var(--cp-border)] bg-[var(--cp-bg)] py-[var(--marketing-section-y)]">
+      <section data-design="report" className="border-y border-[var(--cp-border)] bg-[var(--cp-bg)] py-[var(--marketing-section-y)]">
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-12 xl:gap-16">
             <div className="max-w-xl lg:pt-1">
@@ -430,7 +431,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-y border-[var(--cp-border)] bg-[var(--cp-surface)] py-[var(--marketing-section-y)]">
+      <section data-design="example" className="border-y border-[var(--cp-border)] bg-[var(--cp-surface)] py-[var(--marketing-section-y)]">
         <div className="mx-auto max-w-6xl px-4">
           <div className="rounded-xl border border-[var(--cp-border)] bg-[var(--cp-surface-soft)] p-6 md:p-8 lg:p-10">
             <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:items-start lg:gap-12">
@@ -478,7 +479,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-[var(--marketing-section-y)]">
+      <section data-design="pricing" className="mx-auto max-w-6xl px-4 py-[var(--marketing-section-y)]">
         <SectionIntro
           tone="quiet"
           eyebrow="Pricing"
@@ -498,7 +499,7 @@ export default function HomePage() {
         </p>
       </section>
 
-      <section className="border-y border-[var(--cp-border)] bg-[var(--cp-bg)] py-[var(--marketing-section-y)]">
+      <section data-design="security" className="border-y border-[var(--cp-border)] bg-[var(--cp-bg)] py-[var(--marketing-section-y)]">
         <div className="mx-auto max-w-6xl px-4">
           <SectionIntro
             tone="quiet"
@@ -534,7 +535,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-4 py-[var(--marketing-section-y)]">
+      <section data-design="faq" className="mx-auto max-w-3xl px-4 py-[var(--marketing-section-y)]">
         <SectionIntro tone="quiet" eyebrow="FAQ" title="Questions operators ask before rollout" />
         <div className="mt-10">
           <FaqAccordion items={HOME_FAQ} />

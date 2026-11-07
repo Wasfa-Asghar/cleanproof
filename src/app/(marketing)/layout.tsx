@@ -1,3 +1,4 @@
+import "./marketing.css";
 import { SiteFooter } from "@/components/marketing/site-footer";
 import { SiteHeader } from "@/components/marketing/site-header";
 import { CookieConsent } from "@/components/marketing/cookie-consent";

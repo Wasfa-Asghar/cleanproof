@@ -112,7 +112,7 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[#ebeff0] bg-white/90 shadow-[0_1px_0_0_rgba(12,25,41,0.04)] backdrop-blur-md supports-[backdrop-filter]:bg-white/80">
+    <header className="marketing-header sticky top-0 z-40 border-b border-[#ebeff0] bg-white/90 shadow-[0_1px_0_0_rgba(12,25,41,0.04)] backdrop-blur-md supports-[backdrop-filter]:bg-white/80">
       <div className="mx-auto flex h-[68px] max-w-[1280px] items-center justify-between gap-4 px-4 md:h-[76px] md:px-6">
         <MarketingWordmark />
 

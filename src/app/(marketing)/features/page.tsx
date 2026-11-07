@@ -1,3 +1,4 @@
+import { ProductDetailSections } from "@/components/marketing/product-detail-sections";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { FEATURE_PAGES } from "@/lib/marketing/features-content";
@@ -78,6 +79,16 @@ export default function FeaturesIndexPage() {
         </div>
       </section>
 
+      <ProductDetailSections sections={[
+        {
+          title: "Pilot one recurring visit",
+          body: "Start with a site your team knows. Run its checklist, evidence and review through one real visit before rolling the workflow out to more sites.",
+        },
+        {
+          title: "Agree on the handover",
+          body: "Decide who reviews submitted work and who shares the approved report. Give each person a clear point to take over.",
+        },
+      ]} />
       <CtaBand />
     </>
   );

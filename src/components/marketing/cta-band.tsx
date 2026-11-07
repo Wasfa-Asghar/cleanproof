@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 export function CtaBand() {
   return (
-    <section className="border-t border-white/10 bg-[var(--cp-footer-cta)] text-center text-white">
+    <section className="marketing-cta border-t border-white/10 bg-[var(--cp-footer-cta)] text-center text-white">
       <div className="mx-auto max-w-3xl px-4 py-[clamp(3.5rem,8vw,5rem)]">
         <h2 className="text-3xl font-semibold tracking-[-0.02em] sm:text-4xl md:text-[2.45rem]">Make quality easier to prove.</h2>
         <p className="mt-4 text-base leading-relaxed text-[#bfd5db] sm:text-[17px]">

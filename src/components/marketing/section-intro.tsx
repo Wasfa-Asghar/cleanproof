@@ -21,7 +21,7 @@ export function SectionIntro({
       ? "text-xs font-semibold uppercase tracking-[0.1em] text-[var(--cp-teal)]"
       : "text-sm font-medium text-[var(--cp-muted)]";
   return (
-    <div className={`${wrap} ${className ?? ""}`}>
+    <div className={`marketing-section-intro ${wrap} ${className ?? ""}`}>
       {eyebrow ? <p className={eyebrowClass}>{eyebrow}</p> : null}
       <h2 className={`text-pretty text-2xl font-semibold tracking-tight text-[var(--cp-navy)] md:text-[1.75rem] md:leading-snug ${eyebrow ? "mt-2" : ""}`}>
         {title}
