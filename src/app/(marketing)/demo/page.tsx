@@ -1,5 +1,4 @@
 import { ProductDetailSections } from "@/components/marketing/product-detail-sections";
-import { notFound } from "next/navigation";
 import {
   demoLoginCleanerAction,
   demoLoginManagerAction,
@@ -45,14 +44,18 @@ const ROLES: Array<{
 ];
 
 export default async function DemoPage() {
-  if (!isDemoModeEnabled()) notFound();
+  const demoModeEnabled = isDemoModeEnabled();
 
   return (
     <>
       <MarketingInteriorHeroCenter
         eyebrow="Product walkthrough"
         title="See the workflow from every role."
-        lead="Demo mode uses seeded data only. Choose a role to open the real app, the screens below are captured from the same routes after you sign in."
+        lead={
+          demoModeEnabled
+            ? "Explore CleanProof through seeded sample data. Choose a role to open the real app, or browse the screen previews below."
+            : "Explore CleanProof through real product screens from our sample workflow. Choose a role below to see how each person uses the same job record."
+        }
       />
 
       <section className="border-b border-[var(--cp-border)] bg-[var(--cp-section-muted)] py-[clamp(2.5rem,6vw,4rem)]">
@@ -61,8 +64,7 @@ export default async function DemoPage() {
             <ProductScreenshot screenshotKey="owner-overview" variant="hero" />
           </MarketingGlassFrame>
           <p className="mt-4 text-center text-xs text-[var(--cp-ink-subtle)]">
-            Run <code className="rounded bg-white/80 px-1">npm run dev:e2e</code> and{" "}
-            <code className="rounded bg-white/80 px-1">node scripts/capture-marketing-screenshots.mjs</code> to refresh captures from the seeded organisation.
+            Real CleanProof screens from the demo organisation.
           </p>
         </div>
       </section>
@@ -71,7 +73,9 @@ export default async function DemoPage() {
         <div className="mx-auto max-w-[1216px] px-4">
           <h2 className="text-xl font-semibold text-[var(--cp-navy)]">Three roles, one job record</h2>
           <p className="mt-2 max-w-2xl text-[var(--cp-muted)]">
-            Each card opens a one-click demo session for that role. Use separate browser profiles if you need two roles open at once.
+            {demoModeEnabled
+              ? "Each card opens a one-click demo session for that role. Use separate browser profiles if you need two roles open at once."
+              : "Compare the owner, supervisor, and cleaner screens to see how each role contributes to a consistent job record."}
           </p>
           <div className="mt-10 grid gap-8 lg:grid-cols-3">
             {ROLES.map(({ action, title, desc, screenshotKey }) => (
@@ -82,11 +86,17 @@ export default async function DemoPage() {
                 <div className="flex flex-1 flex-col p-6">
                   <h3 className="text-lg font-semibold text-[var(--cp-navy)]">{title}</h3>
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--cp-muted)]">{desc}</p>
-                  <form action={action} className="mt-5">
-                    <Button type="submit" variant="secondary" className="w-full border-[var(--cp-border-strong)] py-3 font-semibold">
-                      Enter demo as {title.toLowerCase()} →
+                  {demoModeEnabled ? (
+                    <form action={action} className="mt-5">
+                      <Button type="submit" variant="secondary" className="w-full border-[var(--cp-border-strong)] py-3 font-semibold">
+                        Enter demo as {title.toLowerCase()} →
+                      </Button>
+                    </form>
+                  ) : (
+                    <Button href="/auth/signup" variant="secondary" className="mt-5 w-full border-[var(--cp-border-strong)] py-3 font-semibold">
+                      Start free trial →
                     </Button>
-                  </form>
+                  )}
                 </div>
               </div>
             ))}
@@ -122,7 +132,9 @@ export default async function DemoPage() {
           Create your organisation →
         </Button>
         <p className="mt-4 text-sm text-[var(--cp-muted)]">
-          Production disables one-click demo logins unless explicitly configured for a sandbox.
+          {demoModeEnabled
+            ? "Demo sessions use seeded sample data."
+            : "One-click demo logins are not available in this environment. The screen previews above show the product workflow."}
         </p>
       </section>
     </>

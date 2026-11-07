@@ -122,6 +122,8 @@
 .marketing-home [data-design="report"] { background: var(--cp-bg); }
 .marketing-home [data-design="report"] .grid > div:last-child > div { border-radius: 12px; box-shadow: none; background: var(--cp-surface); }
 .marketing-home [data-design="example"] > div > div { border-radius: 12px; padding: clamp(24px,4vw,56px); }
+.marketing-home [data-design="example"] > div > div > div > div:first-child { text-align: center; }
+.marketing-home [data-design="example"] > div > div > div > div:first-child > div.flex { justify-content: center; }
 .marketing-home .marketing-price-card { border-radius: 12px; box-shadow: none; }
 .marketing-home .marketing-price-card.border-2 { border-width: 1px; box-shadow: inset 0 4px var(--cp-teal); }
 .marketing-home [data-design="security"] .marketing-security-grid {
