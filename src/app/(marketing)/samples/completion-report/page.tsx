@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { MarketingInteriorHeroCenter } from "@/components/marketing/marketing-interior-hero";
 import { ProductScreenshot } from "@/components/marketing/product-screenshot";
 import { MarketingGlassFrame } from "@/components/marketing/marketing-glass-frame";
-import { CtaBand } from "@/components/marketing/cta-band";
 
 export const metadata: Metadata = {
   title: "Sample completion report",
@@ -102,7 +101,6 @@ export default function SampleReportPage() {
           body: "Share the approved visit report with the intended client contact when they need a record of completed work.",
         },
       ]} />
-      <CtaBand />
     </>
   );
 }

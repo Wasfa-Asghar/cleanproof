@@ -3,7 +3,6 @@ import Link from "next/link";
 import { MarketingInteriorHeroCenter } from "@/components/marketing/marketing-interior-hero";
 import { MarketingGlassFrame } from "@/components/marketing/marketing-glass-frame";
 import { ProductScreenshot } from "@/components/marketing/product-screenshot";
-import { CtaBand } from "@/components/marketing/cta-band";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
@@ -98,7 +97,6 @@ export default function HowItWorksPage() {
         </Button>
       </section>
 
-      <CtaBand />
     </>
   );
 }

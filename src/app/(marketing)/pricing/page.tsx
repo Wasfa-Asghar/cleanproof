@@ -2,8 +2,6 @@ import { ProductDetailSections } from "@/components/marketing/product-detail-sec
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PricingCards } from "@/components/marketing/pricing-cards";
-import { FaqAccordion } from "@/components/marketing/faq-accordion";
-import { CtaBand } from "@/components/marketing/cta-band";
 import { MarketingInteriorHeroCenter } from "@/components/marketing/marketing-interior-hero";
 import { MarketingFeatureIcon } from "@/components/marketing/marketing-feature-icon";
 import { getPublicPlanCards } from "@/lib/marketing/plans-display";
@@ -12,37 +10,6 @@ export const metadata: Metadata = {
   title: "Pricing",
   description: "Starter, Growth, and Pro plans in GBP with trial, usage limits, and subscription terms.",
 };
-
-const PRICING_FAQ = [
-  {
-    q: "Do I need a card for the trial?",
-    a: "No. You get 14 days on the Starter plan without adding a card. You only add payment details when you pick a paid plan.",
-  },
-  {
-    q: "Can I change plan later?",
-    a: "Yes. The owner can change plan from the billing page. An upgrade starts straight away and you pay the full price of the new plan. A downgrade takes effect at the end of your current month, as long as your usage fits the smaller plan.",
-  },
-  {
-    q: "What counts towards the job limit?",
-    a: "Every job you create in the billing month. You can see your usage against each limit on the billing page.",
-  },
-  {
-    q: "How do I cancel?",
-    a: "Use Cancel at period end on the billing page. Payments stop and you keep access until the month you have paid for ends. You can reactivate any time before then.",
-  },
-  {
-    q: "What happens if a payment fails?",
-    a: "We email the account owner and the payment is retried over the next few days. After a 5 day grace period the account is marked past due and paid features may be paused. Your data is never deleted because of a failed payment.",
-  },
-  {
-    q: "Is VAT included?",
-    a: "Prices are shown in pounds sterling. If VAT applies to your invoice it is added at the rate in force and shown on your receipt.",
-  },
-  {
-    q: "How do I pay?",
-    a: "By card or another method offered at checkout. Payments are processed by Mollie, so card details never touch CleanProof.",
-  },
-];
 
 export default function PricingPage() {
   const plans = getPublicPlanCards();
@@ -147,26 +114,6 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <section className="border-t border-[var(--cp-border)] bg-[var(--cp-bg)] py-[var(--marketing-section-y)]">
-        <div className="mx-auto max-w-3xl px-4">
-          <h2 className="text-xl font-semibold text-[var(--cp-navy)]">Billing questions</h2>
-          <div className="mt-6">
-            <FaqAccordion items={PRICING_FAQ} />
-          </div>
-          <p className="mt-8 text-sm text-[var(--cp-muted)]">
-            See also{" "}
-            <Link href="/subscription-terms" className="font-medium text-[var(--cp-teal)] underline decoration-teal-200/80 underline-offset-[5px] hover:decoration-[var(--cp-teal)]">
-              subscription terms
-            </Link>{" "}
-            and{" "}
-            <Link href="/refund-policy" className="font-medium text-[var(--cp-teal)] underline decoration-teal-200/80 underline-offset-[5px] hover:decoration-[var(--cp-teal)]">
-              refund &amp; cancellation policy
-            </Link>
-            .
-          </p>
-        </div>
-      </section>
-
       <ProductDetailSections sections={[
         {
           title: "Estimate your job volume",
@@ -177,7 +124,6 @@ export default function PricingPage() {
           body: "Set up a site, assign a visit, review the submission and open its report before choosing a paid plan.",
         },
       ]} />
-      <CtaBand />
     </>
   );
 }

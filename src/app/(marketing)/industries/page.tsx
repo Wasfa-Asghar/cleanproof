@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { INDUSTRY_PAGES, type IndustrySlug } from "@/lib/marketing/industries-content";
-import { CtaBand } from "@/components/marketing/cta-band";
 import { MarketingInteriorHeroCenter } from "@/components/marketing/marketing-interior-hero";
 import { MarketingGlassFrame } from "@/components/marketing/marketing-glass-frame";
 import { ProductScreenshot } from "@/components/marketing/product-screenshot";
@@ -92,7 +91,6 @@ export default function IndustriesIndexPage() {
         </div>
       </section>
 
-      <CtaBand />
     </>
   );
 }

@@ -1,13 +1,13 @@
 import { ProductDetailSections, FEATURE_DETAILS } from "@/components/marketing/product-detail-sections";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { FaqAccordion } from "@/components/marketing/faq-accordion";
 import { ProductScreenshot } from "@/components/marketing/product-screenshot";
-import { CtaBand } from "@/components/marketing/cta-band";
 import { MarketingInteriorHeroSplit } from "@/components/marketing/marketing-interior-hero";
 import { MarketingFeatureIcon } from "@/components/marketing/marketing-feature-icon";
 import type { FeaturePageContent } from "@/lib/marketing/features-content";
 import { FEATURE_PAGES, getFeatureWorkflowScenario } from "@/lib/marketing/features-content";
+import { PRODUCT_SCREENSHOTS } from "@/lib/marketing/image-manifest";
 
 export function FeaturePageView({ page }: { page: FeaturePageContent }) {
   const scenario = getFeatureWorkflowScenario();
@@ -92,53 +92,87 @@ export function FeaturePageView({ page }: { page: FeaturePageContent }) {
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-4 py-[var(--marketing-section-y)]">
-        <h2 className="text-xl font-semibold text-[var(--cp-navy)]">Why teams adopt this</h2>
-        <p className="mt-4 text-[var(--cp-muted)]">{page.problem}</p>
-        <h3 className="mt-10 text-lg font-semibold text-[var(--cp-navy)]">How CleanProof helps</h3>
-        <p className="mt-3 text-[var(--cp-muted)]">{page.solution}</p>
-        <h3 className="mt-10 text-lg font-semibold text-[var(--cp-navy)]">Typical workflow</h3>
-        <ul className="mt-4 list-disc space-y-2 pl-5 text-[var(--cp-muted)]">
-          {page.benefits.map((b) => (
-            <li key={b}>{b}</li>
-          ))}
-        </ul>
-        {page.limitations?.length ? (
-          <>
-            <h3 className="mt-10 text-lg font-semibold text-[var(--cp-navy)]">Limitations to know</h3>
-            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-[var(--cp-muted)]">
-              {page.limitations.map((l) => (
-                <li key={l}>{l}</li>
-              ))}
-            </ul>
-          </>
-        ) : null}
+      <section className="marketing-feature-proof py-[var(--marketing-section-y)]">
+        <div className="mx-auto max-w-[1216px] px-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--cp-teal)]">Built for confident handovers</p>
+          <div className="marketing-feature-proof-panel mt-4">
+            <div className="marketing-feature-proof-intro">
+              <h2 className="text-2xl font-semibold tracking-tight text-[var(--cp-navy)] md:text-3xl">Why teams adopt this</h2>
+              <p className="mt-3 max-w-4xl leading-relaxed text-[var(--cp-muted)]">{page.problem}</p>
+            </div>
+            <div className="marketing-feature-proof-grid mt-8">
+              <article className="marketing-feature-proof-card">
+                <span className="marketing-feature-proof-index">01</span>
+                <h3 className="mt-4 text-lg font-semibold text-[var(--cp-navy)]">How CleanProof helps</h3>
+                <p className="mt-3 leading-relaxed text-[var(--cp-muted)]">{page.solution}</p>
+              </article>
+              <article className="marketing-feature-proof-card">
+                <span className="marketing-feature-proof-index">02</span>
+                <h3 className="mt-4 text-lg font-semibold text-[var(--cp-navy)]">Typical workflow</h3>
+                <ul className="marketing-feature-proof-list mt-4">
+                  {page.benefits.map((benefit) => (
+                    <li key={benefit}>
+                      <span aria-hidden>✓</span>
+                      {benefit}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            </div>
+            {page.limitations?.length ? (
+              <aside className="marketing-feature-limitations mt-6">
+                <h3 className="text-sm font-semibold text-[var(--cp-navy)]">Limitations to know</h3>
+                <ul className="mt-2 space-y-2 text-sm leading-relaxed text-[var(--cp-muted)]">
+                  {page.limitations.map((limitation) => (
+                    <li key={limitation}>{limitation}</li>
+                  ))}
+                </ul>
+              </aside>
+            ) : null}
+          </div>
+        </div>
       </section>
 
-      <section className="border-t border-[var(--cp-border)] bg-[var(--cp-section-muted)] py-[var(--marketing-section-y)]">
-        <div className="mx-auto max-w-3xl px-4">
-          <h2 className="text-xl font-semibold text-[var(--cp-navy)]">Related features</h2>
-          <ul className="mt-4 flex flex-wrap gap-3">
-            {page.relatedSlugs.map((slug) => (
-              <li key={slug}>
-                <Link href={`/features/${slug}`} className="text-sm font-medium text-[var(--cp-teal)] hover:underline">
-                  {FEATURE_PAGES[slug as keyof typeof FEATURE_PAGES]?.title ?? slug}
-                </Link>
-              </li>
-            ))}
+      <section className="marketing-related-features py-[var(--marketing-section-y)]">
+        <div className="mx-auto max-w-[1216px] px-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--cp-teal)]">Connected workflows</p>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-[var(--cp-navy)] md:text-3xl">Related features</h2>
+          <ul className="marketing-related-feature-grid mt-7">
+            {page.relatedSlugs.map((slug, index) => {
+              const relatedPage = FEATURE_PAGES[slug as keyof typeof FEATURE_PAGES];
+              if (!relatedPage) return null;
+              const screenshot = PRODUCT_SCREENSHOTS[relatedPage.heroScreenshotKey];
+
+              return (
+                <li key={slug}>
+                  <Link href={`/features/${slug}`} className="marketing-related-feature-card">
+                    <div className="marketing-related-feature-image">
+                      <Image
+                        src={screenshot.file}
+                        alt={screenshot.alt}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 380px"
+                        className="object-contain"
+                      />
+                      <span className="marketing-related-feature-number">{String(index + 1).padStart(2, "0")}</span>
+                    </div>
+                    <div className="marketing-related-feature-copy">
+                      <h3>{relatedPage.title}</h3>
+                      <p>{relatedPage.heroLead}</p>
+                      <span>Explore feature ↗</span>
+                    </div>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-4 py-[var(--marketing-section-y)]">
-        <h2 className="text-xl font-semibold text-[var(--cp-navy)]">FAQ</h2>
-        <div className="mt-6">
-          <FaqAccordion items={page.faq} />
-        </div>
-      </section>
-
-      <ProductDetailSections sections={FEATURE_DETAILS[page.slug]} />
-      <CtaBand />
+      <ProductDetailSections
+        sections={FEATURE_DETAILS[page.slug]}
+        screenshots={[page.heroScreenshotKey, page.workflowScreenshotKey]}
+      />
     </>
   );
 }

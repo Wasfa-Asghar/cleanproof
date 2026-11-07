@@ -1,3 +1,6 @@
+import { ProductScreenshot } from "@/components/marketing/product-screenshot";
+import type { ProductScreenshotKey } from "@/lib/marketing/image-manifest";
+
 type ProductSection = { title: string; body: string };
 type SectionPair = readonly [ProductSection, ProductSection];
 
@@ -40,8 +43,33 @@ export const FEATURE_DETAILS: Record<string, SectionPair> = {
   ],
 };
 
-export function ProductDetailSections({ sections }: { sections?: SectionPair }) {
-  return sections?.map(({ title, body }) => (
+export function ProductDetailSections({
+  sections,
+  screenshots,
+}: {
+  sections?: SectionPair;
+  screenshots?: readonly [ProductScreenshotKey, ProductScreenshotKey];
+}) {
+  if (!sections) return null;
+
+  if (screenshots) {
+    return sections.map(({ title, body }, index) => (
+      <section key={title} className="marketing-product-detail-section">
+        <div className={`marketing-product-detail-grid mx-auto max-w-[1216px] px-4 ${index % 2 ? "is-reversed" : ""}`}>
+          <div className="marketing-product-detail-copy">
+            <span className="marketing-feature-proof-index">{String(index + 1).padStart(2, "0")}</span>
+            <h2 className="mt-4 text-2xl font-semibold tracking-tight text-[var(--cp-navy)] md:text-3xl">{title}</h2>
+            <p className="mt-4 max-w-xl leading-relaxed text-[var(--cp-muted)]">{body}</p>
+          </div>
+          <div className="marketing-product-detail-image">
+            <ProductScreenshot screenshotKey={screenshots[index]} variant="default" showCaption={false} />
+          </div>
+        </div>
+      </section>
+    ));
+  }
+
+  return sections.map(({ title, body }) => (
     <section key={title} className="border-t border-[var(--cp-border)] py-10 sm:py-12">
       <div className="mx-auto grid max-w-[1216px] gap-3 px-4 md:grid-cols-2 md:gap-10">
         <h2 className="text-2xl font-semibold tracking-tight text-[var(--cp-navy)]">{title}</h2>

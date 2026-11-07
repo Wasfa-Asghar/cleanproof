@@ -1,8 +1,5 @@
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ProductScreenshot } from "@/components/marketing/product-screenshot";
-import { FaqAccordion } from "@/components/marketing/faq-accordion";
-import { CtaBand } from "@/components/marketing/cta-band";
 import { MarketingInteriorHeroSplit } from "@/components/marketing/marketing-interior-hero";
 import { MarketingLicensedPhoto } from "@/components/marketing/marketing-licensed-photo";
 import { MarketingGlassFrame } from "@/components/marketing/marketing-glass-frame";
@@ -41,25 +38,35 @@ export function IndustryPageView({ page }: { page: IndustryPageContent }) {
         </div>
       </MarketingInteriorHeroSplit>
 
-      <section className="border-b border-[var(--cp-border)] bg-[var(--cp-section-muted)] py-[var(--marketing-section-y)]">
-        <div className="mx-auto max-w-3xl px-4">
-          <h2 className="text-xl font-semibold text-[var(--cp-navy)]">Operational challenges</h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-[var(--cp-muted)]">
-            {page.challenges.map((c) => (
-              <li key={c}>{c}</li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="border-b border-[var(--cp-border)] py-[var(--marketing-section-y)]">
-        <div className="mx-auto max-w-3xl px-4">
-          <h2 className="text-xl font-semibold text-[var(--cp-navy)]">How CleanProof helps</h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-[var(--cp-muted)]">
-            {page.howCleanProofHelps.map((h) => (
-              <li key={h}>{h}</li>
-            ))}
-          </ul>
+      <section className="marketing-industry-proof py-[var(--marketing-section-y)]">
+        <div className="mx-auto max-w-[1216px] px-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--cp-teal)]">Designed around your contracts</p>
+          <div className="marketing-industry-proof-grid mt-4">
+            <article className="marketing-industry-proof-card">
+              <span className="marketing-feature-proof-index">01</span>
+              <h2 className="mt-4 text-xl font-semibold text-[var(--cp-navy)]">Operational challenges</h2>
+              <ul className="marketing-feature-proof-list mt-4">
+                {page.challenges.map((challenge) => (
+                  <li key={challenge}>
+                    <span aria-hidden>−</span>
+                    {challenge}
+                  </li>
+                ))}
+              </ul>
+            </article>
+            <article className="marketing-industry-proof-card marketing-industry-proof-card--brand">
+              <span className="marketing-feature-proof-index">02</span>
+              <h2 className="mt-4 text-xl font-semibold text-[var(--cp-navy)]">How CleanProof helps</h2>
+              <ul className="marketing-feature-proof-list mt-4">
+                {page.howCleanProofHelps.map((item) => (
+                  <li key={item}>
+                    <span aria-hidden>✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -87,18 +94,6 @@ export function IndustryPageView({ page }: { page: IndustryPageContent }) {
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-4 py-[var(--marketing-section-y)]">
-        <p className="text-sm">
-          <Link href="/features" className="font-semibold text-[var(--cp-teal)] underline decoration-teal-200/80 underline-offset-[5px] hover:decoration-[var(--cp-teal)]">
-            Explore all features →
-          </Link>
-        </p>
-        <div className="mt-10">
-          <FaqAccordion items={page.faq} />
-        </div>
-      </section>
-
-      <CtaBand />
     </>
   );
 }

@@ -2,7 +2,6 @@ import { ProductDetailSections } from "@/components/marketing/product-detail-sec
 import Link from "next/link";
 import type { Metadata } from "next";
 import { FEATURE_PAGES } from "@/lib/marketing/features-content";
-import { CtaBand } from "@/components/marketing/cta-band";
 import { MarketingInteriorHeroCenter } from "@/components/marketing/marketing-interior-hero";
 import { MarketingFeatureIcon } from "@/components/marketing/marketing-feature-icon";
 import { MarketingGlassFrame } from "@/components/marketing/marketing-glass-frame";
@@ -89,7 +88,6 @@ export default function FeaturesIndexPage() {
           body: "Decide who reviews submitted work and who shares the approved report. Give each person a clear point to take over.",
         },
       ]} />
-      <CtaBand />
     </>
   );
 }

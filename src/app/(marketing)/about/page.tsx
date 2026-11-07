@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { businessIdentity } from "@/lib/config/business-identity";
-import { CtaBand } from "@/components/marketing/cta-band";
 import { MarketingInteriorHeroSplit } from "@/components/marketing/marketing-interior-hero";
 import { MarketingFeatureIcon } from "@/components/marketing/marketing-feature-icon";
 
@@ -104,7 +103,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <CtaBand />
     </>
   );
 }

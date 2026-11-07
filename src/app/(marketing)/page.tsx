@@ -18,9 +18,6 @@ import { HomeHeroVisual } from "@/components/marketing/home-hero-visual";
 import { ProductScreenshot } from "@/components/marketing/product-screenshot";
 import { ProductPreviewTabs } from "@/components/marketing/product-preview-tabs";
 import { PricingCards } from "@/components/marketing/pricing-cards";
-import { FaqAccordion } from "@/components/marketing/faq-accordion";
-import { CtaBand } from "@/components/marketing/cta-band";
-import { HOME_FAQ } from "@/lib/marketing/home-faq";
 import { FEATURE_PAGES } from "@/lib/marketing/features-content";
 import { INDUSTRY_PAGES } from "@/lib/marketing/industries-content";
 import type { Metadata } from "next";
@@ -162,11 +159,11 @@ export default function HomePage() {
               Proof of clean for cleaning companies
             </p>
             <h1 className="mt-5 text-4xl font-semibold tracking-[-0.045em] text-[var(--cp-navy)] sm:text-5xl sm:leading-[1.08] lg:text-[2.65rem] xl:text-[2.85rem]">
-              Can you prove the job was done?{" "}
-              <em className="not-italic text-[var(--cp-teal)]">Now every clean comes with a report.</em>
+              Prove every clean.{" "}
+              <em className="not-italic text-[var(--cp-teal)]">Share every result.</em>
             </h1>
             <p className="mt-5 text-lg leading-[1.67] text-[var(--cp-muted)] sm:text-xl sm:leading-snug">
-              Your cleaners tick off the checklist and add before and after photos on their phone. You approve the job, and your client gets a clean report they can open with one link. No more WhatsApp photo chasing.
+              Your team captures checklists and photos, you approve each job, and clients get a clear completion report.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button
@@ -245,40 +242,34 @@ export default function HomePage() {
 
       <section data-design="workflow" id="workflow-on-home" className="scroll-mt-24 border-y border-[var(--cp-border)] bg-[var(--cp-surface)] py-[var(--marketing-section-y)]">
         <div className="mx-auto max-w-[1216px] px-4">
-          <p className="inline-flex items-center gap-2.5 text-xs font-extrabold uppercase tracking-[0.11em] text-[var(--cp-teal)]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#0c9897]" aria-hidden />
-            The CleanProof workflow
-          </p>
-          <div className="mt-3 flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-8">
-            <h2 className="max-w-[620px] text-3xl font-semibold tracking-[-0.02em] text-[var(--cp-navy)] md:text-[2.1rem]">
-              One workflow. From assignment to approval.
-            </h2>
-            <p className="max-w-[425px] text-[17px] leading-snug text-[var(--cp-muted)]">
-              Four steps from assignment to client-ready proof. Tab through the product preview below for owner, field, and quality surfaces.
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.13fr)] lg:items-center lg:gap-16 xl:gap-[4.5rem]">
-            <ol className="space-y-0 pt-1">
-              {STEPS.map((s, idx) => (
-                <li key={s.n} className="flex gap-5 border-b border-[var(--cp-border)] py-5 first:pt-0 last:border-b-0">
-                  <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[color-mix(in_srgb,var(--cp-teal)_35%,#b5dcd8)] bg-[color-mix(in_srgb,var(--cp-teal)_8%,#ecf8f5)] text-[13px] font-extrabold tabular-nums text-[var(--cp-teal)]">
-                    {String(idx + 1).padStart(2, "0")}
-                  </span>
-                  <div className="min-w-0 pt-0.5">
-                    <h3 className="text-lg font-semibold tracking-tight text-[var(--cp-navy)]">{s.title}</h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-[var(--cp-muted)]">{s.text}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-            <div
-              className="min-w-0 rounded-[23px] border border-[color-mix(in_srgb,var(--cp-teal)_22%,#d2e7e6)] p-4 sm:p-6 lg:p-8"
-              style={{
-                background: "linear-gradient(130deg, #d9eeed 0%, #f5f9f8 55%, #bddcda 100%)",
-              }}
-            >
+          <div className="marketing-workflow-layout">
+            <div className="marketing-workflow-visual">
               <ProductScreenshot screenshotKey="owner-overview" variant="hero" showCaption />
+            </div>
+            <div className="marketing-workflow-copy">
+              <p className="inline-flex items-center gap-2.5 text-xs font-extrabold uppercase tracking-[0.11em] text-[var(--cp-teal)]">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#0c9897]" aria-hidden />
+                The CleanProof workflow
+              </p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-[-0.02em] text-[var(--cp-navy)] md:text-[2.1rem]">
+                One workflow. From assignment to approval.
+              </h2>
+              <p className="mt-3 text-[17px] leading-snug text-[var(--cp-muted)]">
+                Four steps from assignment to client-ready proof. Tab through the product preview below for owner, field, and quality surfaces.
+              </p>
+              <ol className="marketing-workflow-steps mt-8">
+                {STEPS.map((s, idx) => (
+                  <li key={s.n} className="flex gap-5 border-b border-[var(--cp-border)] py-5 first:pt-0 last:border-b-0">
+                    <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[color-mix(in_srgb,var(--cp-teal)_35%,#b5dcd8)] bg-[color-mix(in_srgb,var(--cp-teal)_8%,#ecf8f5)] text-[13px] font-extrabold tabular-nums text-[var(--cp-teal)]">
+                      {String(idx + 1).padStart(2, "0")}
+                    </span>
+                    <div className="min-w-0 pt-0.5">
+                      <h3 className="text-lg font-semibold tracking-tight text-[var(--cp-navy)]">{s.title}</h3>
+                      <p className="mt-1.5 text-sm leading-relaxed text-[var(--cp-muted)]">{s.text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
             </div>
           </div>
         </div>
@@ -507,13 +498,13 @@ export default function HomePage() {
             title="Privacy & security"
             description="Built for operators who need defensible records: controlled access, tenant-scoped data, and accountable actions when clients or auditors ask questions."
           />
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="marketing-security-grid mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {SECURITY_POINTS.map((item) => (
               <div
                 key={item.title}
-                className="flex flex-col rounded-xl border border-[var(--cp-border)] bg-[var(--cp-surface)] p-5"
+                className="marketing-security-card flex flex-col rounded-xl border border-[var(--cp-border)] bg-[var(--cp-surface)] p-5"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--cp-border)] bg-[var(--cp-surface-soft)]">
+                <div className="marketing-security-icon flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--cp-border)] bg-[var(--cp-surface-soft)]">
                   <item.Icon className="h-5 w-5 text-[var(--cp-navy)]" />
                 </div>
                 <h3 className="mt-4 text-base font-semibold text-[var(--cp-navy)]">{item.title}</h3>
@@ -535,14 +526,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section data-design="faq" className="mx-auto max-w-3xl px-4 py-[var(--marketing-section-y)]">
-        <SectionIntro tone="quiet" eyebrow="FAQ" title="Questions operators ask before rollout" />
-        <div className="mt-10">
-          <FaqAccordion items={HOME_FAQ} />
-        </div>
-      </section>
-
-      <CtaBand />
     </div>
   );
 }
