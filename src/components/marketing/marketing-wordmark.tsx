@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { businessIdentity } from "@/lib/config/business-identity";
 
 type MarketingWordmarkProps = {
   href?: string;
@@ -6,10 +7,11 @@ type MarketingWordmarkProps = {
   className?: string;
 };
 
-/** Reference-aligned wordmark, check badge + name */
+/** Reference-aligned wordmark: check badge + House of Veynor presents CleanProof */
 export function MarketingWordmark({ href = "/", variant = "dark", className }: MarketingWordmarkProps) {
   const isLight = variant === "light";
-  const textClass = isLight ? "text-white" : "text-[var(--cp-navy)]";
+  const titleClass = isLight ? "text-white" : "text-[var(--cp-navy)]";
+  const presenterClass = isLight ? "text-white/70" : "text-[var(--cp-muted)]";
 
   const inner = (
     <>
@@ -20,19 +22,31 @@ export function MarketingWordmark({ href = "/", variant = "dark", className }: M
       >
         ✓
       </span>
-      <span className={`text-[1.35rem] font-semibold tracking-[-0.07em] ${textClass}`}>CleanProof</span>
+      <span className="flex min-w-0 flex-col leading-none">
+        <span className={`text-[0.62rem] font-semibold uppercase tracking-[0.08em] ${presenterClass}`}>
+          {businessIdentity.brandPresenter}
+        </span>
+        <span className={`mt-0.5 text-[1.2rem] font-semibold tracking-[-0.07em] ${titleClass}`}>
+          {businessIdentity.tradingName}
+        </span>
+      </span>
     </>
   );
 
   const wrap = `inline-flex items-center gap-1.5 ${className ?? ""}`;
+  const label = businessIdentity.brandPresentation;
 
   if (href) {
     return (
-      <Link href={href} className={wrap}>
+      <Link href={href} className={wrap} aria-label={label}>
         {inner}
       </Link>
     );
   }
 
-  return <span className={wrap}>{inner}</span>;
+  return (
+    <span className={wrap} aria-label={label}>
+      {inner}
+    </span>
+  );
 }

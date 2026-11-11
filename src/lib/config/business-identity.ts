@@ -9,6 +9,9 @@ export const businessIdentity = {
   /** Static year for static prerender, update when rolling annual copyright */
   copyrightYear: "2026" as const,
   tradingName: "CleanProof" as const,
+  /** Public product name shown in logos, titles, and chrome */
+  brandPresentation: "House of Veynor presents CleanProof" as const,
+  brandPresenter: "House of Veynor presents" as const,
   legalEntityName: "The House Of Veynor Ltd" as VerificationField,
   registrationCountry: "England and Wales" as VerificationField,
   companyRegistrationNumber: "17561169" as VerificationField,

@@ -18,11 +18,11 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.APP_URL ?? "https://thehouseofveynor.uk"),
-  applicationName: "CleanProof",
+  applicationName: "House of Veynor presents CleanProof",
   publisher: "The House Of Veynor Ltd",
   title: {
-    default: "CleanProof, Cleaning quality & proof of service",
-    template: "%s | CleanProof",
+    default: "House of Veynor presents CleanProof, Cleaning quality & proof of service",
+    template: "%s | House of Veynor presents CleanProof",
   },
   description:
     "Verify completed cleaning, review exceptions, share client reports, and close quality complaints for multi-site commercial teams.",

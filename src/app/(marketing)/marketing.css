@@ -858,7 +858,8 @@
 }
 .marketing-footer-brand a { gap: 10px; }
 .marketing-footer-brand a > span:first-child { width: 34px; height: 34px; }
-.marketing-footer-brand a > span:last-child { font-size: 1.65rem; }
+.marketing-footer-brand a > span:last-child > span:first-child { font-size: 0.72rem; letter-spacing: 0.1em; }
+.marketing-footer-brand a > span:last-child > span:last-child { font-size: 1.65rem; }
 .marketing-footer-grid { padding-block: 48px 72px; }
 .marketing-footer-about { padding-right: 36px; }
 .marketing-footer-links,

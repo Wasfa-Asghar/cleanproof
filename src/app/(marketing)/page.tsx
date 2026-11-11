@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   description:
     "Verify cleaning jobs with checklists, before/after photos, supervisor review, and client completion reports. Built for professional cleaning teams in the UK.",
   openGraph: {
-    title: "CleanProof, Every cleaning job verified",
+    title: "House of Veynor presents CleanProof, Every cleaning job verified",
     description: "Quality control, photo evidence, and client reports for cleaning businesses.",
   },
 };

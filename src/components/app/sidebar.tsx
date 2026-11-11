@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
 import { logoutAction } from "@/lib/auth/actions";
+import { businessIdentity } from "@/lib/config/business-identity";
 
 const nav = [
   { href: "/app/overview", label: "Overview", icon: LayoutDashboard },
@@ -40,8 +41,13 @@ export function AppSidebar({ orgName }: { orgName: string }) {
   return (
     <aside className="hidden w-64 shrink-0 flex-col border-r border-[var(--cp-border-strong)] bg-[#0a1f2e] text-slate-100 lg:flex">
       <div className="border-b border-white/10 px-4 py-5">
-        <Link href="/app/overview" className="block text-lg font-semibold tracking-tight text-white">
-          CleanProof
+        <Link href="/app/overview" className="block" aria-label={businessIdentity.brandPresentation}>
+          <span className="block text-[0.62rem] font-semibold uppercase tracking-[0.08em] text-slate-400">
+            {businessIdentity.brandPresenter}
+          </span>
+          <span className="mt-0.5 block text-lg font-semibold tracking-tight text-white">
+            {businessIdentity.tradingName}
+          </span>
         </Link>
         <p className="mt-1 truncate text-xs text-slate-400">{orgName}</p>
       </div>
