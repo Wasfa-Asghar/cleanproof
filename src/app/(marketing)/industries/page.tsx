@@ -38,15 +38,32 @@ export default function IndustriesIndexPage() {
                 <Link
                   key={ind.slug}
                   href={`/industries/${ind.slug}`}
-                  className="grid min-h-[230px] grid-cols-1 overflow-hidden rounded-2xl border border-[#dfeaea] bg-white transition-colors hover:border-[var(--cp-navy)] md:grid-cols-[230px_1fr] md:min-h-[230px]"
+                  className="group grid grid-cols-1 overflow-hidden rounded-2xl border border-[var(--cp-border)] bg-[var(--cp-surface)] transition-colors hover:border-[var(--cp-navy)] md:grid-cols-[240px_1fr]"
                 >
-                  <div className="relative min-h-[200px] bg-[#dae8e6] md:min-h-[230px]">
-                    <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 230px" />
+                  <div className="relative min-h-[210px] overflow-hidden bg-[#dae8e6] md:min-h-[260px]">
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                      sizes="(max-width: 768px) 100vw, 240px"
+                    />
                   </div>
                   <div className="p-6 md:p-7">
-                    <h2 className="text-lg font-semibold tracking-tight text-[var(--cp-navy)] md:text-[1.35rem]">{ind.title}</h2>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.11em] text-[var(--cp-teal)]">{ind.heroEyebrow}</p>
+                    <h2 className="mt-2 text-lg font-semibold tracking-tight text-[var(--cp-navy)] md:text-[1.35rem]">{ind.title}</h2>
                     <p className="mt-3 text-sm leading-relaxed text-[var(--cp-muted)]">{ind.metaDescription}</p>
-                    <span className="mt-4 inline-block text-[13px] font-semibold text-[#00878b]">Explore solution ↗</span>
+                    <ul className="mt-5 grid gap-2">
+                      {ind.focusPoints.map((point) => (
+                        <li key={point.title} className="flex items-start gap-2.5 text-[13px] leading-relaxed text-[var(--cp-navy)]">
+                          <span className="mt-0.5 text-[var(--cp-teal)]" aria-hidden>
+                            ✓
+                          </span>
+                          {point.title}
+                        </li>
+                      ))}
+                    </ul>
+                    <span className="mt-5 inline-block text-[13px] font-semibold text-[#00878b]">Explore solution ↗</span>
                   </div>
                 </Link>
               );

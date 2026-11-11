@@ -152,7 +152,7 @@ export default function HomePage() {
   return (
     <div className="marketing-home">
       <section data-design="hero" className="relative overflow-x-hidden border-b border-[var(--cp-border)] bg-[var(--cp-hero-gradient)]">
-        <div className="relative mx-auto grid max-w-[1216px] gap-10 px-4 py-[clamp(3.5rem,8vw,5.25rem)] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-center lg:gap-16">
+        <div className="relative mx-auto">
           <div className="max-w-xl">
             <p className="inline-flex items-center gap-2.5 text-xs font-extrabold uppercase tracking-[0.11em] text-[var(--cp-teal)]">
               <span className="h-1.5 w-1.5 rounded-full bg-[#0c9897]" aria-hidden />
@@ -197,7 +197,7 @@ export default function HomePage() {
               </li>
             </ul>
           </div>
-          <div className="relative flex min-w-0 justify-center lg:justify-end">
+          <div className="relative min-w-0">
             <HomeHeroVisual />
           </div>
         </div>

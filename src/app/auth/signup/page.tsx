@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { signupAction } from "@/lib/auth/actions";
 import { Button } from "@/components/ui/button";
+import { PasswordInput } from "@/components/ui/password-input";
 import { TRIAL_COPY } from "@/lib/marketing/plans-display";
 
 export const metadata = { title: "Sign up" };
@@ -51,15 +52,15 @@ export default async function SignupPage({ searchParams }: PageProps<"/auth/sign
         </label>
         <label className="block text-sm" htmlFor="signup-password">
           <span className="font-medium text-[var(--cp-navy)]">Password</span>
-          <input
+          <PasswordInput
             id="signup-password"
             name="password"
-            type="password"
             minLength={8}
             required
             autoComplete="new-password"
-            className="mt-1.5 w-full rounded-lg border border-[var(--cp-border)] bg-white px-3 py-2.5 text-[15px] focus:border-[var(--cp-teal)] focus:outline-none focus:ring-2 focus:ring-[var(--cp-teal)]/25"
+            className="mt-1.5"
           />
+          <span className="mt-1.5 block text-xs text-[var(--cp-muted)]">At least 8 characters. Use the eye icon to check what you typed.</span>
         </label>
         <Button type="submit" className="w-full bg-[var(--cp-teal)] py-3 font-semibold hover:bg-[var(--cp-teal-600)]">
           Continue
