@@ -77,10 +77,11 @@ export function MarketingMotion() {
     let raf2 = 0;
 
     const observeNew = () => {
-      if (!observer) return;
+      const io = observer;
+      if (!io) return;
       main.querySelectorAll<HTMLElement>(".marketing-reveal").forEach((el) => {
         if (el.classList.contains("is-inview")) return;
-        observer.observe(el);
+        io.observe(el);
       });
     };
 
