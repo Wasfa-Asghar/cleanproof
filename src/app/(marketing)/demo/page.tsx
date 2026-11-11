@@ -5,6 +5,7 @@ import {
   demoLoginOwnerAction,
 } from "@/lib/auth/actions";
 import { Button } from "@/components/ui/button";
+import { DemoLiveFrame } from "@/components/marketing/demo-live-frame";
 import { ProductScreenshot } from "@/components/marketing/product-screenshot";
 import { MarketingInteriorHeroCenter } from "@/components/marketing/marketing-interior-hero";
 import { SectionIntro } from "@/components/marketing/section-intro";
@@ -91,26 +92,13 @@ export default async function DemoPage() {
       <section className="border-b border-[var(--cp-border)] bg-[var(--cp-section-muted)] py-[clamp(2.25rem,5vw,3.5rem)]">
         <div className="mx-auto max-w-[1216px] px-4">
           {demoModeEnabled ? (
-            <form action={demoLoginOwnerAction} className="group">
-              <button
-                type="submit"
-                className="block w-full overflow-hidden rounded-[14px] border border-[var(--cp-border)] bg-[var(--cp-surface)] text-left shadow-[0_16px_40px_-28px_rgba(15,23,42,0.35)] transition hover:border-[var(--cp-teal)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--cp-teal)]"
-              >
-                <ProductScreenshot screenshotKey="owner-overview" variant="hero" showCaption={false} />
-                <span className="flex items-center justify-between gap-3 border-t border-[var(--cp-border)] bg-[var(--cp-surface)] px-4 py-3 text-sm">
-                  <span className="font-semibold text-[var(--cp-navy)]">
-                    Click to open the live owner overview
-                  </span>
-                  <span className="font-semibold text-[var(--cp-teal)] group-hover:underline">Enter demo →</span>
-                </span>
-              </button>
-            </form>
+            <DemoLiveFrame />
           ) : (
             <ProductScreenshot screenshotKey="owner-overview" variant="hero" />
           )}
           <p className="mt-4 text-center text-xs text-[var(--cp-ink-subtle)]">
             {demoModeEnabled
-              ? "Opens the real app for the demo organisation — sidebar links and actions are live."
+              ? "Real app for the demo organisation — explore inside the frame without leaving this page."
               : "Real CleanProof screens from the demo organisation."}
           </p>
         </div>
