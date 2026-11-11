@@ -1,0 +1,425 @@
+/* Concourse-inspired body sections for interior marketing pages.
+   Uses CleanProof palette only. Hero and footer stay outside this shell. */
+.marketing-interior {
+  --marketing-radius: 12px;
+  --marketing-shadow: none;
+  --marketing-shadow-raised: 0 8px 24px color-mix(in srgb, var(--cp-navy) 6%, transparent);
+  --marketing-section-y: clamp(2.25rem, 4.2vw, 3.75rem);
+}
+.marketing-feature-page {
+  --marketing-section-y: clamp(2.1rem, 3.8vw, 3.35rem);
+}
+.marketing-feature-page .marketing-workflow-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.94fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+}
+.marketing-feature-page .mt-12 { margin-top: 2rem; }
+.marketing-feature-page .mt-10 { margin-top: 1.65rem; }
+
+/* Industry hero: full-bleed photo, strong on the right, washed on the left */
+.marketing-industry-hero {
+  min-height: clamp(420px, 62vh, 620px);
+  background: var(--cp-bg);
+}
+.marketing-industry-hero > img {
+  z-index: 0;
+}
+.marketing-industry-hero-wash {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--cp-bg) 96%, transparent) 0%,
+      color-mix(in srgb, var(--cp-bg) 90%, transparent) 28%,
+      color-mix(in srgb, var(--cp-surface) 55%, transparent) 52%,
+      color-mix(in srgb, var(--cp-surface) 18%, transparent) 74%,
+      transparent 100%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--cp-bg) 35%, transparent) 0%,
+      transparent 28%,
+      transparent 72%,
+      color-mix(in srgb, var(--cp-bg) 45%, transparent) 100%
+    );
+}
+@media (max-width: 1023px) {
+  .marketing-industry-hero-wash {
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--cp-bg) 88%, transparent) 0%,
+        color-mix(in srgb, var(--cp-bg) 72%, transparent) 42%,
+        color-mix(in srgb, var(--cp-bg) 55%, transparent) 100%
+      ),
+      linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--cp-bg) 70%, transparent) 0%,
+        color-mix(in srgb, var(--cp-bg) 35%, transparent) 55%,
+        transparent 100%
+      );
+  }
+}
+
+/* Soft professional patterns on selected interior sections */
+.marketing-interior [data-design="focus"],
+.marketing-interior [data-design="comparison"],
+.marketing-interior [data-design="workflow"],
+.marketing-interior [data-design="catalog"] {
+  position: relative;
+  isolation: isolate;
+}
+.marketing-interior [data-design="focus"]::before,
+.marketing-interior [data-design="comparison"]::before,
+.marketing-interior [data-design="workflow"]::before,
+.marketing-interior [data-design="catalog"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.55;
+  background-image:
+    radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--cp-teal) 16%, transparent) 1px, transparent 0);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+}
+.marketing-interior [data-design="verify"],
+.marketing-interior [data-design="outcomes"] {
+  position: relative;
+  isolation: isolate;
+}
+.marketing-interior [data-design="verify"]::before,
+.marketing-interior [data-design="outcomes"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.4;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--cp-teal) 5%, transparent) 0%, transparent 42%),
+    repeating-linear-gradient(
+      -12deg,
+      transparent 0,
+      transparent 11px,
+      color-mix(in srgb, var(--cp-navy) 3.5%, transparent) 11px,
+      color-mix(in srgb, var(--cp-navy) 3.5%, transparent) 12px
+    );
+}
+.marketing-interior [data-design="context"] {
+  position: relative;
+  isolation: isolate;
+}
+.marketing-interior [data-design="context"]::after {
+  content: "";
+  position: absolute;
+  right: -8%;
+  top: -40%;
+  width: min(420px, 48vw);
+  height: min(420px, 48vw);
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--cp-teal) 10%, transparent), transparent 68%);
+  pointer-events: none;
+  z-index: 0;
+}
+.marketing-interior [data-design="context"] > * {
+  position: relative;
+  z-index: 1;
+}
+
+.marketing-interior > section {
+  padding-block: var(--marketing-section-y);
+}
+
+.marketing-interior > section > .mx-auto,
+.marketing-interior > section.mx-auto {
+  max-width: 1344px;
+  padding-inline: 32px;
+}
+
+.marketing-interior h2 {
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.marketing-interior .marketing-section-intro {
+  max-width: 860px;
+}
+
+.marketing-interior .marketing-section-intro h2 {
+  font-size: clamp(1.9rem, 3.4vw, 2.9rem);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+}
+
+.marketing-interior .marketing-section-intro h2 + p {
+  max-width: 68ch;
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.marketing-interior :is(a, button).min-h-11 {
+  border-radius: 7px;
+  box-shadow: none;
+}
+
+/* Context band — title left, lead right */
+.marketing-interior [data-design="context"] {
+  background: var(--cp-surface);
+  border-bottom: 1px solid var(--cp-border);
+}
+
+.marketing-interior [data-design="context"] h2 {
+  font-size: clamp(1.85rem, 3.2vw, 2.65rem);
+  line-height: 1.15;
+}
+
+/* Focus / capability columns — Concourse image-on-top cards */
+.marketing-interior [data-design="focus"] {
+  background: color-mix(in srgb, var(--cp-bg) 92%, var(--cp-surface));
+}
+
+.marketing-interior-focus-grid {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+@media (min-width: 768px) {
+  .marketing-interior-focus-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.marketing-interior-focus-card {
+  min-width: 0;
+}
+
+.marketing-interior-focus-media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  aspect-ratio: 16 / 10;
+  background: var(--cp-surface-soft);
+  border: 1px solid var(--cp-border);
+  box-shadow: 0 10px 28px color-mix(in srgb, var(--cp-navy) 6%, transparent);
+}
+
+.marketing-interior-focus-media img {
+  object-fit: cover;
+}
+
+.marketing-interior-focus-card h3 {
+  margin-top: 1.15rem;
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--cp-navy);
+}
+
+.marketing-interior-focus-card p {
+  margin-top: 0.65rem;
+  max-width: 42ch;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--cp-muted);
+}
+
+/* Verify grid — bordered unified panel */
+.marketing-interior [data-design="verify"] {
+  background: var(--cp-surface);
+  border-block: 1px solid var(--cp-border);
+}
+
+.marketing-interior-unified-grid {
+  gap: 0;
+  border: 1px solid var(--cp-border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--cp-surface);
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--cp-navy) 4%, transparent);
+}
+
+.marketing-interior-unified-grid > * {
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.marketing-interior-unified-grid > *:nth-child(even) {
+  background: var(--cp-bg);
+}
+
+@media (min-width: 640px) {
+  .marketing-interior-unified-grid.sm\:grid-cols-2 > *:nth-child(4n + 3),
+  .marketing-interior-unified-grid.sm\:grid-cols-2 > *:nth-child(4n + 4) {
+    background: transparent;
+  }
+  .marketing-interior-unified-grid.sm\:grid-cols-2 > *:nth-child(4n + 2),
+  .marketing-interior-unified-grid.sm\:grid-cols-2 > *:nth-child(4n + 3) {
+    background: var(--cp-bg);
+  }
+}
+
+@media (min-width: 768px) {
+  .marketing-interior-unified-grid.md\:grid-cols-3 > *:nth-child(even) {
+    background: transparent;
+  }
+  .marketing-interior-unified-grid.md\:grid-cols-3 > *:nth-child(3n + 2) {
+    background: var(--cp-bg);
+  }
+}
+
+/* Split image + copy */
+.marketing-interior [data-design="split"] {
+  border-bottom: 1px solid var(--cp-border);
+}
+
+.marketing-interior-photo {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--cp-border);
+  background: var(--cp-surface-soft);
+}
+
+.marketing-interior-photo img {
+  object-fit: cover;
+}
+
+.marketing-interior [data-design="split"] h2 {
+  font-size: clamp(1.7rem, 3vw, 2.45rem);
+  line-height: 1.12;
+}
+
+/* Comparison */
+.marketing-interior [data-design="comparison"] {
+  background: var(--cp-bg);
+}
+
+.marketing-interior [data-design="comparison"] .marketing-comparison-split {
+  margin-top: 0;
+}
+
+/* Outcomes */
+.marketing-interior [data-design="outcomes"] {
+  background: var(--cp-surface);
+  border-block: 1px solid var(--cp-border);
+}
+
+.marketing-interior-outcomes-grid {
+  gap: 0;
+  border: 1px solid var(--cp-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.marketing-interior-outcomes-grid > * {
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  border: 0;
+  border-radius: 0;
+  background: var(--cp-surface);
+}
+
+.marketing-interior-outcomes-grid > *:nth-child(even) {
+  background: var(--cp-bg);
+}
+
+.marketing-interior-outcomes-grid h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Workflow — product visual + copy */
+.marketing-interior [data-design="workflow"] {
+  background: var(--cp-bg);
+}
+
+.marketing-interior .marketing-workflow-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5.5rem);
+}
+
+.marketing-interior .marketing-workflow-copy h2 {
+  font-size: clamp(1.8rem, 3.2vw, 2.55rem);
+}
+
+.marketing-interior .marketing-workflow-visual figure > div,
+.marketing-interior .marketing-workflow-visual > div {
+  border-radius: 12px;
+  box-shadow: var(--marketing-shadow-raised);
+}
+
+/* Catalog index */
+.marketing-interior [data-design="catalog"] {
+  background: var(--cp-bg);
+}
+
+.marketing-interior-catalog-grid {
+  gap: 1.25rem;
+}
+
+.marketing-interior-catalog-grid > a {
+  overflow: hidden;
+  border: 1px solid var(--cp-border);
+  border-radius: 12px;
+  background: var(--cp-surface);
+  transition: transform 260ms ease, border-color 260ms ease, box-shadow 260ms ease;
+}
+
+.marketing-interior-catalog-image {
+  background: var(--cp-surface-soft);
+}
+
+.marketing-interior-catalog-copy {
+  padding: clamp(1.35rem, 2.5vw, 2rem);
+}
+
+.marketing-interior-catalog-copy h2 {
+  font-size: 1.35rem;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .marketing-interior-catalog-grid > a:hover {
+    transform: translateY(-3px);
+    border-color: var(--cp-teal);
+    box-shadow: var(--marketing-shadow-raised);
+  }
+
+  .marketing-interior-focus-media {
+    transition: transform 280ms ease;
+  }
+
+  .marketing-interior-focus-card:hover .marketing-interior-focus-media {
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 1023px) {
+  .marketing-interior .marketing-workflow-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .marketing-interior > section > .mx-auto,
+  .marketing-interior > section.mx-auto {
+    padding-inline: 20px;
+  }
+
+  .marketing-interior .marketing-section-intro h2 {
+    font-size: clamp(1.65rem, 7vw, 2.15rem);
+  }
+}

@@ -92,6 +92,27 @@ export function IconShieldUser(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+/** Proof / trust callout, shield with check */
+export function IconShieldCheck(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden {...props}>
+      <path
+        d="M16 4l10 4v8c0 6-4.2 10.8-10 12-5.8-1.2-10-6-10-12V8l10-4z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M11.5 16.2l3.2 3.2 6.2-6.6"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 /** Organisation-scoped data */
 export function IconOrgScope(props: SVGProps<SVGSVGElement>) {
   return (

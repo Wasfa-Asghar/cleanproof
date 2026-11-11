@@ -1,9 +1,9 @@
 import { ProductDetailSections } from "@/components/marketing/product-detail-sections";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { PricingCards } from "@/components/marketing/pricing-cards";
 import { MarketingInteriorHeroCenter } from "@/components/marketing/marketing-interior-hero";
-import { MarketingFeatureIcon } from "@/components/marketing/marketing-feature-icon";
+import { CapabilityRail } from "@/components/marketing/capability-rail";
+import { SectionIntro } from "@/components/marketing/section-intro";
 import { getPublicPlanCards } from "@/lib/marketing/plans-display";
 
 export const metadata: Metadata = {
@@ -72,44 +72,42 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <section className="py-[clamp(3rem,7vw,5rem)]">
+      <section className="marketing-feature-cards-section py-[clamp(2.5rem,5vw,3.75rem)]">
         <div className="mx-auto max-w-[1216px] px-4">
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-8">
-            <h2 className="max-w-[620px] text-[clamp(1.5rem,3vw,2.1rem)] font-semibold tracking-[-0.02em] text-[var(--cp-navy)]">
-              No surprises in the way your team grows.
-            </h2>
-            <p className="max-w-[425px] text-[17px] leading-snug text-[var(--cp-muted)]">
-              The prices and limits on this page are the same ones your billing page uses, so what you see here is what you pay.
-            </p>
-          </div>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            <Link
-              href="/help/billing"
-              className="block min-h-[242px] rounded-2xl border border-[#e3ebed] bg-white p-7 shadow-[0_6px_20px_rgba(35,60,74,0.02)] transition-colors hover:border-[var(--cp-navy)]"
-            >
-              <MarketingFeatureIcon glyph="♧" />
-              <h3 className="mt-4 text-xl font-semibold text-[var(--cp-navy)]">What counts as a cleaner?</h3>
-              <p className="mt-3 text-sm leading-relaxed text-[var(--cp-muted)]">Only active cleaner users count toward the plan limit.</p>
-              <span className="mt-5 inline-block text-[13px] font-semibold text-[#00878b]">Read billing guide ↗</span>
-            </Link>
-            <Link
-              href="/help/billing"
-              className="block min-h-[242px] rounded-2xl border border-[#e3ebed] bg-white p-7 shadow-[0_6px_20px_rgba(35,60,74,0.02)] transition-colors hover:border-[var(--cp-navy)]"
-            >
-              <MarketingFeatureIcon glyph="⬡" />
-              <h3 className="mt-4 text-xl font-semibold text-[var(--cp-navy)]">What happens at the limit?</h3>
-              <p className="mt-3 text-sm leading-relaxed text-[var(--cp-muted)]">Adding sites, cleaners, or jobs beyond the plan is blocked until you upgrade.</p>
-              <span className="mt-5 inline-block text-[13px] font-semibold text-[#00878b]">Read billing guide ↗</span>
-            </Link>
-            <Link
-              href="/subscription-terms"
-              className="block min-h-[242px] rounded-2xl border border-[#e3ebed] bg-white p-7 shadow-[0_6px_20px_rgba(35,60,74,0.02)] transition-colors hover:border-[var(--cp-navy)]"
-            >
-              <MarketingFeatureIcon glyph="▤" />
-              <h3 className="mt-4 text-xl font-semibold text-[var(--cp-navy)]">Can I cancel?</h3>
-              <p className="mt-3 text-sm leading-relaxed text-[var(--cp-muted)]">Cancel from the billing page. Your plan stays active until the month you paid for ends.</p>
-              <span className="mt-5 inline-block text-[13px] font-semibold text-[#00878b]">Subscription terms →</span>
-            </Link>
+          <SectionIntro
+            tone="badge"
+            eyebrow="Billing clarity"
+            title="No surprises in the way your team grows."
+            underlinePhrase="No surprises"
+            description="The prices and limits on this page are the same ones your billing page uses, so what you see here is what you pay."
+          />
+          <div className="mt-10">
+            <CapabilityRail
+              columns={3}
+              items={[
+                {
+                  key: "cleaner",
+                  title: "What counts as a cleaner?",
+                  body: "Only active cleaner users count toward the plan limit.",
+                  href: "/help/billing",
+                  glyph: "♧",
+                },
+                {
+                  key: "limit",
+                  title: "What happens at the limit?",
+                  body: "Adding sites, cleaners, or jobs beyond the plan is blocked until you upgrade.",
+                  href: "/help/billing",
+                  glyph: "⬡",
+                },
+                {
+                  key: "cancel",
+                  title: "Can I cancel?",
+                  body: "Cancel from the billing page. Your plan stays active until the month you paid for ends.",
+                  href: "/subscription-terms",
+                  glyph: "▤",
+                },
+              ]}
+            />
           </div>
         </div>
       </section>

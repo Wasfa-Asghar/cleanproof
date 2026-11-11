@@ -3,6 +3,7 @@ import { SiteFooter } from "@/components/marketing/site-footer";
 import { SiteHeader } from "@/components/marketing/site-header";
 import { CookieConsent } from "@/components/marketing/cookie-consent";
 import { MarketingPageFaq } from "@/components/marketing/marketing-page-faq";
+import { MarketingMotion } from "@/components/marketing/marketing-motion";
 
 export default function MarketingLayout({ children }: LayoutProps<"/">) {
   return (
@@ -14,6 +15,7 @@ export default function MarketingLayout({ children }: LayoutProps<"/">) {
       </main>
       <SiteFooter />
       <CookieConsent />
+      <MarketingMotion />
     </div>
   );
 }

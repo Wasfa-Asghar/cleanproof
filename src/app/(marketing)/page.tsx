@@ -1,4 +1,5 @@
 import "./home-reference.css";
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -20,6 +21,8 @@ import { ProductPreviewTabs } from "@/components/marketing/product-preview-tabs"
 import { PricingCards } from "@/components/marketing/pricing-cards";
 import { FEATURE_PAGES } from "@/lib/marketing/features-content";
 import { INDUSTRY_PAGES } from "@/lib/marketing/industries-content";
+import { CapabilityRail } from "@/components/marketing/capability-rail";
+import { ComparisonSplit } from "@/components/marketing/comparison-split";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -216,27 +219,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section data-design="gaps" className="mx-auto max-w-6xl px-4 py-[var(--marketing-section-y)]">
-        <SectionIntro
-          tone="quiet"
-          eyebrow="What breaks first"
-          title="Operational gaps that show up under contract pressure"
-          description="These are the patterns we hear from teams moving off paper and group chats, the same ones CleanProof is built around."
-        />
-        <div className="mt-12 grid gap-5 md:grid-cols-2 md:gap-6">
-          {PROBLEMS.map((p) => (
-            <div key={p.title} className="rounded-xl border border-[var(--cp-border)] bg-[var(--cp-surface)] p-6">
-              <div className="flex gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-[var(--cp-border)] bg-[var(--cp-surface-soft)]">
-                  <p.Icon className="h-5 w-5 text-[var(--cp-navy)]" />
-                </div>
-                <div className="min-w-0">
-                  <h3 className="font-semibold tracking-tight text-[var(--cp-navy)]">{p.title}</h3>
-                  <p className="marketing-prose mt-2 text-sm text-[var(--cp-muted)]">{p.body}</p>
-                </div>
-              </div>
-            </div>
-          ))}
+      <section data-design="gaps" className="marketing-feature-cards-section py-[var(--marketing-section-y)]">
+        <div className="mx-auto max-w-6xl px-4">
+          <SectionIntro
+            tone="badge"
+            eyebrow="What breaks first"
+            title="Operational gaps that show up under contract pressure"
+            underlinePhrase="contract pressure"
+            description="These are the patterns we hear from teams moving off paper and group chats, the same ones CleanProof is built around."
+          />
+          <div className="mt-12">
+            <CapabilityRail
+              columns={4}
+              items={PROBLEMS.map((p) => ({
+                key: p.title,
+                title: p.title,
+                body: p.body,
+                Icon: p.Icon,
+              }))}
+            />
+          </div>
         </div>
       </section>
 
@@ -287,26 +289,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section data-design="platform" className="border-t border-[var(--cp-border)] bg-[var(--cp-bg)] py-[var(--marketing-section-y)]">
+      <section data-design="platform" className="marketing-feature-cards-section border-t border-[var(--cp-border)] py-[var(--marketing-section-y)]">
         <div className="mx-auto max-w-6xl px-4">
           <SectionIntro
-            tone="quiet"
+            tone="badge"
             eyebrow="Platform"
             title="From checklist to client report in one system"
+            underlinePhrase="one system"
             description="Each link opens a focused page on how that piece works with the rest of the job record, no fluff, no parallel products."
           />
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {Object.values(FEATURE_PAGES).map((f) => (
-              <Link
-                key={f.slug}
-                href={`/features/${f.slug}`}
-                className="rounded-xl border border-[var(--cp-border)] bg-[var(--cp-surface)] p-5 transition-colors hover:border-[var(--cp-navy)]"
-              >
-                <h3 className="font-semibold tracking-tight text-[var(--cp-navy)]">{f.title}</h3>
-                <p className="marketing-prose mt-2 text-sm text-[var(--cp-muted)] line-clamp-2">{f.metaDescription}</p>
-                <span className="mt-4 inline-block text-sm font-medium text-[var(--cp-teal)]">Read more →</span>
-              </Link>
-            ))}
+          <div className="mt-12">
+            <CapabilityRail
+              columns={4}
+              items={Object.values(FEATURE_PAGES).map((f) => ({
+                key: f.slug,
+                title: f.title,
+                body: f.metaDescription,
+                href: `/features/${f.slug}`,
+                glyph: f.highlights[0]?.glyph ?? "✓",
+              }))}
+              footerLabels={["Checklists", "Photo evidence", "Supervisor review", "Client reports", "Field mobile", "Audit trail"]}
+            />
           </div>
         </div>
       </section>
@@ -318,39 +321,27 @@ export default function HomePage() {
           title="Spreadsheets and chat threads vs one job record"
           description="When someone asks what happened on Tuesday’s clean, you either reconstruct it from memory or show them the record, CleanProof is built for the second."
         />
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          <div className="rounded-xl border border-[var(--cp-border)] bg-[var(--cp-surface-soft)] p-6">
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-[var(--cp-ink-subtle)]">Without CleanProof</h3>
-            <ul className="mt-5 space-y-3 text-sm leading-relaxed text-[var(--cp-muted)]">
-              {["Paper checklists", "Scattered messages", "Missing photographs", "Manual follow-ups", "Unclear completion status"].map(
-                (line) => (
-                  <li key={line} className="flex gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-300" aria-hidden />
-                    <span>{line}</span>
-                  </li>
-                ),
-              )}
-            </ul>
-          </div>
-          <div className="rounded-xl border border-[var(--cp-border)] bg-[var(--cp-surface)] p-6">
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-[var(--cp-teal)]">With CleanProof</h3>
-            <ul className="mt-5 space-y-3 text-sm leading-relaxed text-[var(--cp-navy)]">
-              {[
-                "Central job records",
-                "Structured photo evidence",
-                "Supervisor review queue",
-                "Tracked corrective actions",
-                "Shareable approved reports",
-              ].map((line) => (
-                <li key={line} className="flex gap-2">
-                  <span className="mt-0.5 text-[var(--cp-teal)]" aria-hidden>
-                    ✓
-                  </span>
-                  <span>{line}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="mt-12">
+          <ComparisonSplit
+            withoutTitle="When proof is hard to find"
+            withTitle="Clarity that closes the loop"
+            withoutItems={[
+              "Paper checklists",
+              "Scattered messages",
+              "Missing photographs",
+              "Manual follow-ups",
+              "Unclear completion status",
+            ]}
+            withItems={[
+              "Central job records",
+              "Structured photo evidence",
+              "Supervisor review queue",
+              "Tracked corrective actions",
+              "Shareable approved reports",
+            ]}
+            withoutCta={{ href: "/contact", label: "Talk to us" }}
+            withCta={{ href: "/auth/signup", label: "Start free trial" }}
+          />
         </div>
       </section>
 
@@ -424,42 +415,50 @@ export default function HomePage() {
 
       <section data-design="example" className="border-y border-[var(--cp-border)] bg-[var(--cp-surface)] py-[var(--marketing-section-y)]">
         <div className="mx-auto max-w-6xl px-4">
-          <div className="rounded-xl border border-[var(--cp-border)] bg-[var(--cp-surface-soft)] p-6 md:p-8 lg:p-10">
-            <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:items-start lg:gap-12">
-              <div>
-                <p className="text-sm font-medium text-[var(--cp-muted)]">End-to-end example</p>
-                <h2 className="mt-2 text-2xl font-semibold tracking-tight text-[var(--cp-navy)] md:text-3xl">
-                  Riverside Office, evening cleaning
-                </h2>
-                <p className="marketing-prose mt-3 text-sm text-[var(--cp-muted)] md:text-base">
+          <div className="marketing-example-panel">
+            <div className="marketing-example-layout">
+              <div className="marketing-example-copy">
+                <p className="marketing-example-eyebrow">
+                  <span className="marketing-example-eyebrow__rule" aria-hidden />
+                  End-to-end example
+                </p>
+                <h2 className="marketing-example-title">Riverside Office, evening cleaning</h2>
+                <p className="marketing-example-lead">
                   One sample visit, from checklist to client report. The data is a demo, not a real customer or site.
                 </p>
-                <div className="mt-6 flex flex-wrap gap-3">
+                <div className="marketing-example-actions">
                   <Button href="/demo" variant="secondary" className="border-[var(--cp-border-strong)] shadow-sm">
                     Open interactive demo
                   </Button>
                   <Button href="/samples/completion-report" className="bg-[var(--cp-teal)] shadow-sm hover:bg-[var(--cp-teal-600)]">
-                    See sample report
+                    See sample report →
                   </Button>
                 </div>
+                <figure className="marketing-example-photo">
+                  <Image
+                    src="/marketing/photos/commercial-office-clean.jpg"
+                    alt="Cleaning supplies ready for an evening office visit"
+                    width={960}
+                    height={720}
+                    className="h-full w-full object-cover"
+                    sizes="(max-width: 1024px) 100vw, 420px"
+                  />
+                </figure>
               </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">What happens on this visit</p>
-                <ol className="mt-5 space-y-0">
+              <div className="marketing-example-timeline">
+                <p className="marketing-example-timeline__heading">What happens on this visit</p>
+                <ol className="marketing-example-steps">
                   {DEMO_SCENARIO_STEPS.map((step, i) => (
-                    <li key={step.label} className="relative flex gap-4 pb-8 last:pb-0">
-                      {i < DEMO_SCENARIO_STEPS.length - 1 ? (
-                        <div
-                          className="absolute left-[15px] top-9 h-[calc(100%-0.25rem)] w-px bg-[var(--cp-border)]"
-                          aria-hidden
-                        />
-                      ) : null}
-                      <div className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-[var(--cp-border)] bg-[var(--cp-surface)] text-xs font-bold tabular-nums text-[var(--cp-navy)]">
+                    <li key={step.label} className="marketing-example-step">
+                      <span className="marketing-example-step__num" aria-hidden>
                         {i + 1}
-                      </div>
-                      <div className="min-w-0 pt-0.5">
-                        <p className="font-semibold text-[var(--cp-navy)]">{step.label}</p>
-                        <p className="marketing-prose mt-1 text-sm text-[var(--cp-muted)]">{step.detail}</p>
+                      </span>
+                      <span className="marketing-example-step__icon" aria-hidden>
+                        <step.Icon className="h-5 w-5" />
+                      </span>
+                      <div className="marketing-example-step__copy">
+                        <p className="marketing-example-step__label">{step.label}</p>
+                        <p className="marketing-example-step__detail">{step.detail}</p>
                       </div>
                     </li>
                   ))}

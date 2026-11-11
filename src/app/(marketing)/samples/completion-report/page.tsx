@@ -52,21 +52,21 @@ export default function SampleReportPage() {
           <div className="mt-12 grid gap-10 md:grid-cols-3">
             <div>
               <h3 className="text-sm font-extrabold uppercase tracking-[0.08em] text-[#6b8588]">Checklist completion</h3>
-              <MarketingGlassFrame className="mt-4 py-4">
+              <MarketingGlassFrame className="mt-4">
                 <ProductScreenshot screenshotKey="job-detail" showCaption={false} />
               </MarketingGlassFrame>
               <p className="mt-3 text-sm leading-relaxed text-[var(--cp-muted)]">Line-by-line answers stay with the job so clients see the same outcomes supervisors approved.</p>
             </div>
             <div>
               <h3 className="text-sm font-extrabold uppercase tracking-[0.08em] text-[#6b8588]">Before / after evidence</h3>
-              <MarketingGlassFrame className="mt-4 py-4">
+              <MarketingGlassFrame className="mt-4">
                 <ProductScreenshot screenshotKey="field-workspace-mobile" showCaption={false} />
               </MarketingGlassFrame>
               <p className="mt-3 text-sm leading-relaxed text-[var(--cp-muted)]">Field capture groups photos with the checklist context they support.</p>
             </div>
             <div>
               <h3 className="text-sm font-extrabold uppercase tracking-[0.08em] text-[#6b8588]">Supervisor decision</h3>
-              <MarketingGlassFrame className="mt-4 py-4">
+              <MarketingGlassFrame className="mt-4">
                 <ProductScreenshot screenshotKey="quality-queue" showCaption={false} />
               </MarketingGlassFrame>
               <p className="mt-3 text-sm leading-relaxed text-[var(--cp-muted)]">Only after quality review passes does the client-facing summary unlock.</p>

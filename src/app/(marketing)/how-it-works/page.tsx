@@ -4,6 +4,8 @@ import { MarketingInteriorHeroCenter } from "@/components/marketing/marketing-in
 import { MarketingGlassFrame } from "@/components/marketing/marketing-glass-frame";
 import { ProductScreenshot } from "@/components/marketing/product-screenshot";
 import { SectionIntro } from "@/components/marketing/section-intro";
+import { CapabilityRail } from "@/components/marketing/capability-rail";
+import { ComparisonSplit } from "@/components/marketing/comparison-split";
 import {
   IconAlert,
   IconAudit,
@@ -162,27 +164,26 @@ export default function HowItWorksPage() {
         </div>
       </MarketingInteriorHeroCenter>
 
-      <section className="border-b border-[var(--cp-border)] bg-[var(--cp-surface)] py-[var(--marketing-section-y)]">
+      <section className="marketing-feature-cards-section border-b border-[var(--cp-border)] py-[var(--marketing-section-y)]">
         <div className="mx-auto max-w-[1216px] px-4">
           <SectionIntro
-            align="center"
+            tone="badge"
             eyebrow="The shape of a job"
             title="Four moments, one connected record."
+            underlinePhrase="connected record"
             description="A cleaning job moves through the same four moments every time. CleanProof keeps them joined up, so a decision made in one step is still visible in the next."
           />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {FLOW.map((item) => (
-              <article key={item.n} className="flex flex-col rounded-2xl border border-[var(--cp-border)] bg-[var(--cp-surface)] p-6 shadow-[0_18px_44px_-34px_rgba(11,37,58,0.35)]">
-                <div className="flex items-center justify-between">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--cp-border)] bg-[var(--cp-surface-soft)]">
-                    <item.Icon className="h-5 w-5 text-[var(--cp-navy)]" />
-                  </span>
-                  <span className="text-sm font-bold tabular-nums text-[var(--cp-ink-subtle)]">{item.n}</span>
-                </div>
-                <h3 className="mt-5 text-lg font-semibold tracking-tight text-[var(--cp-navy)]">{item.title}</h3>
-                <p className="mt-2 text-[15px] leading-[1.7] text-[var(--cp-muted)]">{item.body}</p>
-              </article>
-            ))}
+          <div className="mt-12">
+            <CapabilityRail
+              columns={4}
+              items={FLOW.map((item) => ({
+                key: item.n,
+                title: `${item.n} · ${item.title}`,
+                body: item.body,
+                Icon: item.Icon,
+              }))}
+              footerLabels={["Assign", "Capture", "Review", "Report"]}
+            />
           </div>
         </div>
       </section>
@@ -214,7 +215,7 @@ export default function HowItWorksPage() {
                     </Link>
                   </div>
                   <div className={`min-w-0 ${isEven ? "lg:order-1" : ""}`}>
-                    <MarketingGlassFrame className="py-5 sm:py-6">
+                    <MarketingGlassFrame>
                       <ProductScreenshot screenshotKey={step.screenshotKey} variant="hero" showCaption={false} />
                     </MarketingGlassFrame>
                   </div>
@@ -225,33 +226,31 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      <section className="border-b border-[var(--cp-border)] bg-[var(--cp-section-muted)] py-[var(--marketing-section-y)]">
+      <section className="marketing-feature-cards-section border-b border-[var(--cp-border)] py-[var(--marketing-section-y)]">
         <div className="mx-auto max-w-[1216px] px-4">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-center lg:gap-16 xl:gap-[4.5rem]">
+          <SectionIntro
+            tone="badge"
+            eyebrow="One job record"
+            title="Every visit carries the same structured detail."
+            underlinePhrase="structured detail"
+            description="Because each step writes to the same record, the finished job is a complete account of what happened, not a summary reconstructed after the fact."
+          />
+          <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-center lg:gap-10">
             <div className="min-w-0">
-              <MarketingGlassFrame className="py-5 sm:py-6">
+              <MarketingGlassFrame>
                 <ProductScreenshot screenshotKey="job-detail" variant="hero" showCaption={false} />
               </MarketingGlassFrame>
             </div>
             <div className="min-w-0">
-              <SectionIntro
-                eyebrow="One job record"
-                title="Every visit carries the same structured detail."
-                description="Because each step writes to the same record, the finished job is a complete account of what happened, not a summary reconstructed after the fact."
+              <CapabilityRail
+                columns={2}
+                items={CARRIES.map((item) => ({
+                  key: item.title,
+                  title: item.title,
+                  body: item.body,
+                  Icon: item.Icon,
+                }))}
               />
-              <ul className="mt-8 grid gap-5 sm:grid-cols-2">
-                {CARRIES.map((item) => (
-                  <li key={item.title} className="flex gap-4">
-                    <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[var(--cp-border)] bg-[var(--cp-surface)]">
-                      <item.Icon className="h-5 w-5 text-[var(--cp-navy)]" />
-                    </span>
-                    <div className="min-w-0">
-                      <h3 className="text-[15px] font-semibold text-[var(--cp-navy)]">{item.title}</h3>
-                      <p className="mt-1 text-sm leading-relaxed text-[var(--cp-muted)]">{item.body}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
         </div>
@@ -297,31 +296,15 @@ export default function HowItWorksPage() {
             title="Spreadsheets and chat threads vs one job record."
             description="When someone asks what happened on Tuesday's clean, you either reconstruct it from memory or show them the record. CleanProof is built for the second."
           />
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border border-[var(--cp-border)] bg-[var(--cp-surface-soft)] p-6 md:p-7">
-              <h3 className="text-sm font-semibold uppercase tracking-wide text-[var(--cp-ink-subtle)]">Without CleanProof</h3>
-              <ul className="mt-5 space-y-3 text-sm leading-relaxed text-[var(--cp-muted)]">
-                {WITHOUT.map((line) => (
-                  <li key={line} className="flex gap-2.5">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-300" aria-hidden />
-                    <span>{line}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="rounded-2xl border border-[var(--cp-border)] bg-[var(--cp-surface)] p-6 md:p-7">
-              <h3 className="text-sm font-semibold uppercase tracking-wide text-[var(--cp-teal)]">With CleanProof</h3>
-              <ul className="mt-5 space-y-3 text-sm leading-relaxed text-[var(--cp-navy)]">
-                {WITH.map((line) => (
-                  <li key={line} className="flex gap-2.5">
-                    <span className="mt-0.5 text-[var(--cp-teal)]" aria-hidden>
-                      ✓
-                    </span>
-                    <span>{line}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="mt-10">
+            <ComparisonSplit
+              withoutTitle="When proof is hard to find"
+              withTitle="Clarity that closes the loop"
+              withoutItems={WITHOUT}
+              withItems={WITH}
+              withoutCta={{ href: "/contact", label: "Talk to us" }}
+              withCta={{ href: "/auth/signup", label: "Start free trial" }}
+            />
           </div>
         </div>
       </section>

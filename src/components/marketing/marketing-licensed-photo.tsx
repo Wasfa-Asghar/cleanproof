@@ -4,8 +4,12 @@ import type { LicensedPhotoKey } from "@/lib/marketing/industries-content";
 export const LICENSED_PHOTO_PATH: Record<LicensedPhotoKey, string> = {
   "commercial-team": "/marketing/photos/commercial-team.jpg",
   "commercial-office-clean": "/marketing/photos/commercial-office-clean.jpg",
+  "commercial-multi-site": "/marketing/photos/commercial-multi-site.jpg",
+  "commercial-reporting-client": "/marketing/photos/commercial-reporting-client.jpg",
   "end-of-tenancy": "/marketing/photos/end-of-tenancy.jpg",
+  "tenancy-handover": "/marketing/photos/tenancy-handover.jpg",
   "residential-clean": "/marketing/photos/residential-clean.jpg",
+  "residential-trust": "/marketing/photos/residential-trust.jpg",
   "supervisor-inspection": "/marketing/photos/supervisor-inspection.jpg",
   "mobile-cleaning-team": "/marketing/photos/mobile-cleaning-team.jpg",
   "kitchen-sanitize": "/marketing/photos/kitchen-sanitize.jpg",

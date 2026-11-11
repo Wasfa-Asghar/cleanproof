@@ -1,0 +1,97 @@
+.marketing-contact-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(520px 280px at 100% 0%, color-mix(in srgb, var(--cp-teal) 12%, transparent), transparent 70%),
+    radial-gradient(480px 260px at 0% 100%, color-mix(in srgb, var(--cp-teal) 10%, transparent), transparent 72%),
+    var(--cp-hero-gradient);
+}
+.marketing-contact-hero__wash {
+  position: absolute;
+  inset: auto -8% -18% auto;
+  z-index: 0;
+  width: min(48vw, 420px);
+  height: min(42vw, 320px);
+  pointer-events: none;
+  background:
+    radial-gradient(closest-side, color-mix(in srgb, var(--cp-teal) 16%, transparent), transparent 72%),
+    radial-gradient(closest-side at 30% 70%, color-mix(in srgb, var(--cp-teal) 10%, transparent), transparent 70%);
+  filter: blur(2px);
+}
+.marketing-contact-hero::before {
+  content: "";
+  position: absolute;
+  left: -6%;
+  bottom: -22%;
+  z-index: 0;
+  width: min(52vw, 460px);
+  height: min(40vw, 300px);
+  pointer-events: none;
+  background:
+    radial-gradient(closest-side, color-mix(in srgb, var(--cp-teal) 14%, transparent), transparent 74%);
+  opacity: 0.9;
+}
+.marketing-contact-hero > *:not(.marketing-contact-hero__wash) {
+  position: relative;
+  z-index: 1;
+}
+.marketing-contact-icon {
+  display: inline-flex;
+  height: 2.15rem;
+  width: 2.15rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border: 1px solid color-mix(in srgb, var(--cp-teal) 35%, transparent);
+  background: color-mix(in srgb, var(--cp-teal) 10%, var(--cp-surface));
+  color: var(--cp-teal);
+}
+.marketing-contact-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0;
+  border: 1px solid var(--cp-border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--cp-surface);
+}
+.marketing-contact-steps li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  padding: 1.15rem 1.25rem;
+  border-top: 1px solid var(--cp-border);
+}
+.marketing-contact-steps li:first-child {
+  border-top: 0;
+}
+.marketing-contact-steps li > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 6px;
+  border: 1px solid color-mix(in srgb, var(--cp-teal) 30%, var(--cp-border));
+  background: color-mix(in srgb, var(--cp-teal) 8%, var(--cp-surface));
+  color: var(--cp-teal);
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+}
+.marketing-contact-steps h3 {
+  margin: 0;
+  color: var(--cp-navy);
+  font-size: 1.05rem;
+  font-weight: 650;
+}
+.marketing-contact-steps p {
+  margin: 0.35rem 0 0;
+  color: var(--cp-muted);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}

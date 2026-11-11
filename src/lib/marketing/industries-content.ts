@@ -12,8 +12,12 @@ export type IndustrySlug = (typeof INDUSTRY_SLUGS)[number];
 export type LicensedPhotoKey =
   | "commercial-team"
   | "commercial-office-clean"
+  | "commercial-multi-site"
+  | "commercial-reporting-client"
   | "end-of-tenancy"
+  | "tenancy-handover"
   | "residential-clean"
+  | "residential-trust"
   | "supervisor-inspection"
   | "mobile-cleaning-team"
   | "kitchen-sanitize"
@@ -30,7 +34,7 @@ export type IndustrySplitSection = {
   photoAlt: string;
 };
 
-export type IndustryPoint = { title: string; body: string };
+export type IndustryPoint = { title: string; body: string; photoKey?: LicensedPhotoKey };
 
 export type IndustryPageContent = {
   slug: IndustrySlug;
@@ -73,7 +77,7 @@ export const INDUSTRY_PAGES: Record<IndustrySlug, IndustryPageContent> = {
     heroLead: "Run multi-site commercial cleaning operations with clear accountability and customer-ready reports.",
     metaDescription:
       "Checklists, photo evidence, supervisor review, and client reports for commercial cleaning operators.",
-    heroPhotoKey: "commercial-team",
+    heroPhotoKey: "commercial-multi-site",
     heroScreenshotKey: "jobs-list",
     workflowScreenshotKey: "field-workspace-mobile",
     referencePng: "13-industries-commercial-cleaning.png",
@@ -84,14 +88,17 @@ export const INDUSTRY_PAGES: Record<IndustrySlug, IndustryPageContent> = {
       {
         title: "Multi-site consistency",
         body: "The same checklist standard runs across your whole portfolio, so a relief cleaner or a new supervisor starts from the same page on day one.",
+        photoKey: "commercial-multi-site",
       },
       {
         title: "Client-ready reporting",
         body: "Facility managers receive a read-only completion report without a dashboard login, a training session, or another tool to learn.",
+        photoKey: "commercial-reporting-client",
       },
       {
         title: "Supervisor visibility",
         body: "One quality queue shows every job waiting for approval, so visits are signed off from evidence instead of memory.",
+        photoKey: "supervisor-inspection",
       },
     ],
     verifyTitle: "What gets verified on every commercial visit",
@@ -125,8 +132,8 @@ export const INDUSTRY_PAGES: Record<IndustrySlug, IndustryPageContent> = {
         "See which sites are waiting on supervisor review",
         "Compare evidence quality across contracts",
       ],
-      photoKey: "commercial-office-clean",
-      photoAlt: "Commercial cleaner working in an open-plan office environment",
+      photoKey: "commercial-multi-site",
+      photoAlt: "Commercial cleaning crew working across an office floor",
     },
     splitSecondary: {
       eyebrow: "Reporting clients actually open",
@@ -138,8 +145,8 @@ export const INDUSTRY_PAGES: Record<IndustrySlug, IndustryPageContent> = {
         "PDF export for handover packs and client inboxes",
         "A layout that reflects your operation, not a stock template",
       ],
-      photoKey: "supervisor-inspection",
-      photoAlt: "Supervisor reviewing cleaning quality on site",
+      photoKey: "commercial-reporting-client",
+      photoAlt: "Facility manager reviewing an approved cleaning completion report",
     },
     outcomes: [
       { title: "Fewer \"was it done?\" emails", body: "Clients check the completion report instead of chasing the contract manager for an update." },
@@ -193,14 +200,17 @@ export const INDUSTRY_PAGES: Record<IndustrySlug, IndustryPageContent> = {
       {
         title: "Recurring schedules",
         body: "Evening, early-morning and weekend cleans run from the same template, so a rotated crew keeps the standard a regular cleaner would.",
+        photoKey: "commercial-office-clean",
       },
       {
         title: "Washroom and kitchen checks",
         body: "High-attention areas get their own checklist lines and evidence requirements instead of one vague \"cleaned\" tick.",
+        photoKey: "kitchen-sanitize",
       },
       {
         title: "Facility manager reporting",
         body: "Share an approved completion report a building manager can read in under a minute, from a link, with no login.",
+        photoKey: "window-cleaning",
       },
     ],
     verifyTitle: "What gets verified on every office visit",
@@ -291,7 +301,7 @@ export const INDUSTRY_PAGES: Record<IndustrySlug, IndustryPageContent> = {
     heroLead: "Record room-level cleaning tasks, photo evidence and approvals for move-out work.",
     metaDescription:
       "Detailed checklists, before/after photos, and approval workflows for end-of-tenancy and move-out cleans.",
-    heroPhotoKey: "end-of-tenancy",
+    heroPhotoKey: "tenancy-handover",
     heroScreenshotKey: "job-detail",
     workflowScreenshotKey: "client-report",
     referencePng: "15-industries-end-of-tenancy-cleaning.png",
@@ -302,14 +312,17 @@ export const INDUSTRY_PAGES: Record<IndustrySlug, IndustryPageContent> = {
       {
         title: "Room-by-room detail",
         body: "Each room carries its own tasks, so an oven, a shower screen and a skirting board are never bundled into one vague tick.",
+        photoKey: "tenancy-handover",
       },
       {
         title: "Photo proof at handover",
         body: "Before and after photos attach to the visit, giving you a defensible record if a dispute is raised weeks later.",
+        photoKey: "end-of-tenancy",
       },
       {
         title: "A single handover pack",
         body: "Approved visits become a PDF pack that agents, landlords or inventory clerks can file against the property.",
+        photoKey: "supervisor-inspection",
       },
     ],
     verifyTitle: "What gets verified on every handover clean",
@@ -343,8 +356,8 @@ export const INDUSTRY_PAGES: Record<IndustrySlug, IndustryPageContent> = {
         "Before and after photos stored on the same visit",
         "Exceptions recorded instead of skipped silently",
       ],
-      photoKey: "kitchen-sanitize",
-      photoAlt: "Deep cleaning a kitchen as part of a move-out clean",
+      photoKey: "tenancy-handover",
+      photoAlt: "Deep cleaning a kitchen during an end-of-tenancy handover",
     },
     splitSecondary: {
       eyebrow: "Built for disputes",
@@ -356,8 +369,8 @@ export const INDUSTRY_PAGES: Record<IndustrySlug, IndustryPageContent> = {
         "Supervisor sign-off before the report is shared",
         "Downloadable PDF for the property file",
       ],
-      photoKey: "residential-clean",
-      photoAlt: "Cleaning a residential room before a tenancy handover",
+      photoKey: "end-of-tenancy",
+      photoAlt: "Documenting a residential room before tenancy handover",
     },
     outcomes: [
       { title: "Faster handovers", body: "One approved record covers the paperwork agents ask for at move-out." },
@@ -400,7 +413,7 @@ export const INDUSTRY_PAGES: Record<IndustrySlug, IndustryPageContent> = {
     heroLead: "Assign jobs, guide cleaners and respond to customer concerns without scattered messages.",
     metaDescription:
       "Assign cleaners, capture checklists and photos, and resolve quality issues for residential teams.",
-    heroPhotoKey: "residential-clean",
+    heroPhotoKey: "residential-trust",
     heroScreenshotKey: "field-workspace-mobile",
     workflowScreenshotKey: "issues-board",
     referencePng: "16-industries-residential-cleaning.png",
@@ -411,14 +424,17 @@ export const INDUSTRY_PAGES: Record<IndustrySlug, IndustryPageContent> = {
       {
         title: "Per-home instructions",
         body: "Each property keeps its own checklist and notes, so a different cleaner still knows the routine when someone is off.",
+        photoKey: "residential-trust",
       },
       {
         title: "Remote supervision",
         body: "Owners and senior cleaners review visits from a phone instead of driving between jobs to check them.",
+        photoKey: "mobile-cleaning-team",
       },
       {
         title: "Simple proof",
         body: "When a customer questions a visit, the record answers with a checklist result and photos taken on the day.",
+        photoKey: "residential-clean",
       },
     ],
     verifyTitle: "What gets verified on every home visit",
@@ -452,8 +468,8 @@ export const INDUSTRY_PAGES: Record<IndustrySlug, IndustryPageContent> = {
         "Photo capture when a customer asks for proof",
         "Issue log linked to the original visit",
       ],
-      photoKey: "hero-dining",
-      photoAlt: "Cleaning a bright residential dining and living space",
+      photoKey: "residential-trust",
+      photoAlt: "Residential cleaner in a customer home living space",
     },
     splitSecondary: {
       eyebrow: "Growing without drifting",
